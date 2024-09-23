@@ -1,11 +1,34 @@
 # 数理工学実験２　２０２４年度
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+担当教員：白石 允梓（明治大学），山中 卓（青山学院大学）
 
-Check out the content pages bundled with this sample book to see more.
+TA：藤田、清水、岡本、浅野
+
+教室 ４－３０５
+
+[Google Classroom](https://classroom.google.com/c/NzE4MjEzNDI1OTg5?cjc=i25dfwv)
+
+木曜日　8:50~12:20
+
+```{note}
+ページの内容は不定期にアップデートされます。
+
+定期的に、ブラウザの再読込ボタンを押して最新の情報をみてください。
+```
+
+**参考**
+
+[情報処理（2017年度）](https://kino.sub.jp/IT2017/)
+
+```{caution}
+レポートの提出方法
+
+（基本的に）Google Classroomで「id_学籍番号_○○.ipynb 」形式で送ること（ただし，少し変わる場合もあるので講義回のWebをよく見ること）．
+○○には回数が入ります．例えば，第1回であれば01と半角で入れて下さい．
+プログラムにはコメントを必ず書くこと．コメントが書かれていない場合大幅に減点します．
+```
+
+## 目次
 
 ```{tableofcontents}
 ```
