@@ -5,6 +5,5 @@ format: jb-book
 root: intro
 chapters:
 - file: markdown
-- file: MEE2_01_02
 - file: notebooks
 - file: markdown-notebooks
