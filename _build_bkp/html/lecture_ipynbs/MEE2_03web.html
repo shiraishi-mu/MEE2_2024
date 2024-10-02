@@ -1,0 +1,1463 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>第03回 数理工学実験２ &#8212; 数理工学実験2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lecture_ipynbs/MEE2_03web';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">数理工学実験2</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    数理工学実験２　２０２４年度
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MEE2_00.html">事前準備-Jupyter notebookの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_01web.html">9/26 第01回 Pythonの復習 -- データ型（タプル（tuple型）, 辞書（dict型）, 集合（set型）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_02web.html">10/3 第02回 関数，エラーのデバッグ，その他</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/shiraishi-mu/MEE2_2024/issues/new?title=Issue%20on%20page%20%2Flecture_ipynbs/MEE2_03web.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lecture_ipynbs/MEE2_03web.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>第03回　数理工学実験２</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">6 Pythonにおける変数とメモリの深い関係</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.1 Pythonにおけるデータと変数の取り扱い</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">問題 6.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.2 浅いコピーと深いコピー</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">問題 6.2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">7 NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">7.1 ndarray型（多次元配列型）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7.2 ndarray型の作成法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">問題 7.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">問題 7.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">7.3 ndarray型の属性（アトリビュート）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7.4 ndarray型のメソッドおよび関数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">7.5 ndarrayのインデックスとスライス</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">問題 7.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">7.4 ユニバーサル関数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">7.5 ndarrayによる行列計算</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">レポート問題</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>第03回　数理工学実験２<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="python">
+<h2>6 Pythonにおける変数とメモリの深い関係<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<p>Numpyについての説明の前にPythonにおける変数がコンピュータ内（メモリ上）でどのように処理されているのか詳しく見ます。</p>
+<section id="id2">
+<h3>6.1 Pythonにおけるデータと変数の取り扱い<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">b</span><span class="o">=</span><span class="n">a</span>
+<span class="n">c</span><span class="o">=</span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pythonではデータ（値(もちろん、オブジェクトです)）はコンピュータ内では物理的なメモリ上に格納されます。そして、メモリには <strong>（メモリ）アドレス</strong>が割り振られてます（要するにメモリ上の住所のことです）。</p>
+<p>Pythonではこのメモリアドレスに対応する識別番号の事を<strong>識別子（identity(id)）</strong> と呼びます（idとメモリアドレ
+スは違いますが、同一視しても問題は起きません）。
+では早速、変数のidを表示する関数 <strong><code class="docutils literal notranslate"><span class="pre">id()</span></code></strong> を使って上の3つの変数のidを表示します。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4322285344, 4322285344, 4322285600, 4322285344)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code>と<code class="docutils literal notranslate"><span class="pre">b</span></code>のid（<code class="docutils literal notranslate"><span class="pre">2</span></code>のidも）が同じであることが分かるかと思います。実はPythonでは代入操作により<strong>値そのものが代入されるのではなく、値のidが代入されているのです。</strong> この事は<code class="docutils literal notranslate"><span class="pre">b=a</span></code>という操作により<code class="docutils literal notranslate"><span class="pre">a</span></code>の別名として<code class="docutils literal notranslate"><span class="pre">b</span></code>という名前が付いたことを意味してます。<code class="docutils literal notranslate"><span class="pre">a</span></code>も<code class="docutils literal notranslate"><span class="pre">b</span></code>も同じ<code class="docutils literal notranslate"><span class="pre">2</span></code>という値を指しているわけです。一般にオブジェクトの名前やid(アドレス)のことを<strong>参照</strong>と呼ぶことがあります。そして、pythonにおける代入操作<code class="docutils literal notranslate"><span class="pre">b=a</span></code>のことを<strong>参照割り当て</strong>と呼びます。</p>
+<p>実はPythonでの変数の定義はC言語やJava言語と大きく異なっています。Pythonでは代入により変数の定義が行われるのに対して、C言語やJava言語では代入なしに定義が行われます。このことが下記のようにPythonとC言語などとの変数の取り扱いの違いを生み出しています。<br />
+(図で説明)</p>
+<p>さて、それでは<code class="docutils literal notranslate"><span class="pre">a</span></code>,<code class="docutils literal notranslate"><span class="pre">c</span></code>へ他の値を代入したらどうなるのでしょう。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">7</span>
+<span class="n">c</span><span class="o">=</span><span class="mi">8</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4322285504, 4322285344, 4322285536)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4322285344, 4322285344)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code>,<code class="docutils literal notranslate"><span class="pre">c</span></code>のidが変わったのに対し<code class="docutils literal notranslate"><span class="pre">b</span></code>のidが変わってないことが分かります。つまり、<strong><code class="docutils literal notranslate"><span class="pre">a</span></code>や<code class="docutils literal notranslate"><span class="pre">c</span></code>は値が変わったというよりむしろ新しく定義しなおされた（再定義）と考えた方が良い</strong>のです。<br />
+Pythonにおける代入操作は参照割り当てであると言いました。このことにより変数の代入操作は注意しなければなりません。下記を見て下さい。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst01</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">lst02</span><span class="o">=</span><span class="n">lst01</span>
+<span class="n">lst02</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">lst01</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4322285312
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst02</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">lst02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 100, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst01</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 100, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">lst01</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">lst02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4360480448, 4360480448)
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のように<code class="docutils literal notranslate"><span class="pre">lst02=lst01</span></code>と代入操作（参照割り当て）した場合<code class="docutils literal notranslate"><span class="pre">lst01</span></code>と<code class="docutils literal notranslate"><span class="pre">lst02</span></code>は同じリストの別名という事になります。従って<code class="docutils literal notranslate"><span class="pre">lst02[1]</span></code>の値を変更すると同時に<code class="docutils literal notranslate"><span class="pre">lst01[1]</span></code>の値も変更されるわけです。このように同じ実体（変数やリストなどのこと）を示しているか否かを調べる式に<strong>is</strong>演算子があります。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst01</span> <span class="ow">is</span> <span class="n">lst02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>問題 6.1<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>次のようにスライシングを用いた代入を行ったリストに代入を行った場合元のリストのデータは変更されるか確認しなさい。</p>
+<p><code class="docutils literal notranslate"><span class="pre">lst03=[10,20,30,40]</span> <span class="pre">lst04=lst03</span> <span class="pre">lst04[1:3]=[200,300]</span> <span class="pre">lst04,lst03</span></code></p>
+<p>さて、少し違った例を見てみます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst05</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">lst06</span><span class="o">=</span><span class="n">lst05</span>
+<span class="n">lst06</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span> <span class="c1">#[0.1, 0.2, 0.3, 0.4]のidを新しくlst06へ代入</span>
+<span class="n">lst05</span><span class="p">,</span> <span class="n">lst06</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([0, 1, 2, 3], [0.1, 0.2, 0.3, 0.4])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst05</span> <span class="ow">is</span> <span class="n">lst06</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のように<strong>インデキシングおよびスライシングではない代入式では新しい変数が再定義されるので、<code class="docutils literal notranslate"><span class="pre">lst05</span></code>と<code class="docutils literal notranslate"><span class="pre">lst06</span></code>は違う実体を表す</strong>ことになります。
+続いて、同一のリストを<code class="docutils literal notranslate"><span class="pre">lst07</span></code>,<code class="docutils literal notranslate"><span class="pre">lst08</span></code>へ代入するケースを考えてみます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst07</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">lst08</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">lst07</span> <span class="ow">is</span> <span class="n">lst08</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のように<code class="docutils literal notranslate"><span class="pre">lst07</span></code>, <code class="docutils literal notranslate"><span class="pre">lst08</span></code>の実体は異なっています。このことをidを調べることで具体的に確認してみます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">lst07</span><span class="p">),</span><span class="nb">id</span><span class="p">(</span><span class="n">lst08</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4355186176, 4360715072)
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のように<code class="docutils literal notranslate"><span class="pre">lst07</span></code>，<code class="docutils literal notranslate"><span class="pre">lst08</span></code>の<code class="docutils literal notranslate"><span class="pre">id</span></code>は異なりオブジェクトとして，別物であることが分かります．では，<code class="docutils literal notranslate"><span class="pre">lst07</span></code>，<code class="docutils literal notranslate"><span class="pre">lst08</span></code>の要素の<code class="docutils literal notranslate"><span class="pre">id</span></code>を調べてみます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst07</span><span class="p">],[</span><span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst08</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([4322285280, 4322285312, 4322285344, 4322285376],
+ [4322285280, 4322285312, 4322285344, 4322285376])
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のように<code class="docutils literal notranslate"><span class="pre">lst07</span></code>と<code class="docutils literal notranslate"><span class="pre">lst08</span></code>の要素が持つ値のアドレスは同じものであり，このことは次のようにして調べることもできます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst07</span> <span class="o">==</span> <span class="n">lst08</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">==</span></code>はデータが同じであるか否かを調べ、<code class="docutils literal notranslate"><span class="pre">is</span></code>は実体（ようするにアドレス）が同じであるか否かを示しています。当然ですが、<code class="docutils literal notranslate"><span class="pre">lst07</span></code>のデータを変更しても<code class="docutils literal notranslate"><span class="pre">lst08</span></code>のデータへは影響を与えません。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst07</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">lst07</span><span class="p">,</span> <span class="n">lst08</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([0, 10, 2, 3], [0, 1, 2, 3])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>6.2 浅いコピーと深いコピー<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>参照割り当てに続いてここでは<strong>浅いコピー</strong>と<strong>深いコピー</strong>について軽く説明します。この段階では参照割り当てと浅いコピーの区別は無いです。ただし、Pythonでは参照割り当て、浅いコピー、深いコピーの3つが明確に区別されますので今後関わってくることを想定して頭の隅に入れといてください。初めに答えを言いますとほとんどのケースでは深いコピーを使うべきです。浅いコピーを使うと予想外の変数までが変更されてしまったりします。どうしてもメモリが足りない場合のみ浅いコピーを用いるべきです（その場合は注意深くコーディングすること！）。<br />
+　浅いコピーと深いコピーの違いが現れるのは複合オブジェクトの場合のみです。複合オブジェクトとはようするにリストの中にリストが入っているケースです。浅いコピーするときには’copy’モジュールの中の**<code class="docutils literal notranslate"><span class="pre">copy</span></code>関数<strong>を深いコピーをするときには</strong><code class="docutils literal notranslate"><span class="pre">deepcopy</span></code>**関数を用います。まずは単純なリストの例を示します。この段階では浅いコピーと深いコピーの違いは現れません。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+<span class="n">lst08</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst09</span><span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">lst08</span><span class="p">)</span>
+<span class="n">lst09</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst09</span> <span class="ow">is</span> <span class="n">lst08</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst09</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">lst09</span><span class="p">,</span> <span class="n">lst08</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([1, 20, 3, 4], [1, 2, 3, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のように<code class="docutils literal notranslate"><span class="pre">lst08</span></code>と<code class="docutils literal notranslate"><span class="pre">lst09</span></code>の実体は別物であることが分かります．これは<code class="docutils literal notranslate"><span class="pre">deepcopy()</span></code>を用いても同じです。</p>
+</section>
+<section id="id5">
+<h3>問題 6.2<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">deepcopy()</span></code>関数を用いて上記と同じ結果になることを確認しなさい。</p>
+<p>それでは、浅いコピーと深いコピーの違いが現れる複合オブジェクトの例を見てみましょう。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+<span class="n">lst10</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">]]</span>
+<span class="n">lst10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, [30, 40]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst11</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">lst10</span><span class="p">)</span>
+<span class="n">lst11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, [30, 40]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst11</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">lst10</span><span class="p">,</span> <span class="n">lst11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([1, 2, [30, 40]], [1, 20, [30, 40]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst11</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">300</span>
+<span class="n">lst10</span><span class="p">,</span> <span class="n">lst11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([1, 2, [300, 40]], [1, 20, [300, 40]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst10</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">is</span> <span class="n">lst11</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>浅いコピーを行った場合<code class="docutils literal notranslate"><span class="pre">lst10</span></code>の最上位データ<code class="docutils literal notranslate"><span class="pre">1</span></code>,<code class="docutils literal notranslate"><span class="pre">2</span></code>については<code class="docutils literal notranslate"><span class="pre">lst11</span></code>の最上位データとの関係が切れてますが、ネストされている<code class="docutils literal notranslate"><span class="pre">[30,</span> <span class="pre">40]</span></code>については<code class="docutils literal notranslate"><span class="pre">lst10</span></code>と<code class="docutils literal notranslate"><span class="pre">lst11</span></code>の関係は切れてません。したがって、上記のような動作になるわけです。<br />
+同じことを<code class="docutils literal notranslate"><span class="pre">deepcopy</span></code>関数を用いて行います。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+<span class="n">lst12</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lst12=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lst12</span><span class="p">))</span>
+<span class="n">lst13</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">lst12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lst13=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lst13</span><span class="p">))</span>
+<span class="n">lst13</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst12</span><span class="p">,</span><span class="n">lst13</span><span class="p">)</span>
+<span class="n">lst13</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">300</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst12</span><span class="p">,</span> <span class="n">lst13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lst12=[1, 2, [30, 40]]
+lst13=[1, 2, [30, 40]]
+[1, 2, [30, 40]] [1, 20, [30, 40]]
+[1, 2, [30, 40]] [1, 20, [300, 40]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のように<code class="docutils literal notranslate"><span class="pre">deepcopy</span></code>関数を用いるとネストされたデータについても<code class="docutils literal notranslate"><span class="pre">lst12</span></code>と<code class="docutils literal notranslate"><span class="pre">lst13</span></code>の間で関係が切れており独立して取り扱う事ができます。通常、我々はリストをコピーした際にコピー元リストとコピー先リストは独立したものとして取り扱うケースがほとんどです。したがって、<strong>特別な事情がない限りリストをコピーする際には<code class="docutils literal notranslate"><span class="pre">deepcopy()</span></code>関数を使うようにしてください</strong>。</p>
+</section>
+</section>
+<section id="numpy">
+<h2>7 NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
+<p>Pythonは科学技術計算（数値計算、統計解析、データの可視化など）に強い言語として知られていますが、Pythonの標準ライブラリだけでは計算時間が遅いという致命的な弱点があります。それを補うのが<strong>NumPy</strong>ライブラリです。NumPyの肝は<strong>配列の演算を高速に行うこと</strong>にあります（配列とはリストみたいなものです）。科学技術計算では様々な数理モデルのシミュレーションや大規模データ解析を行う際に配列計算を行います。従って、科学技術計算に関わるPythonのライブラリ群のほとんどはNumPyの上に構築されています。そのようなライブラリを自由に使うためにもNumPyの基本はしっかり押さえておきましょう。ちなみに、NumPyが持つ基本的な関数群は下記のとおりです。</p>
+<ul class="simple">
+<li><p>配列生成・操作</p></li>
+<li><p>数学関数</p></li>
+<li><p>線形代数</p></li>
+<li><p>ランダムサンプリング</p></li>
+<li><p>統計関数</p></li>
+<li><p>インデックス関連</p></li>
+<li><p>ソート・サーチ・カウント</p></li>
+<li><p>多項式計算</p></li>
+<li><p>データ入出力</p></li>
+<li><p>離散フーリエ変換と窓関数</p></li>
+</ul>
+<p>これらすべてを覚える必要はありません。「なんとなくこんなことが出来そうだ」と知っておいて、実際に作るときに詳しく調べればいいのです。</p>
+<section id="ndarray">
+<h3>7.1 ndarray型（多次元配列型）<a class="headerlink" href="#ndarray" title="Link to this heading">#</a></h3>
+<p>まず、NumPyライブラリを使うのは次のようにインポートします。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>ライブラリを<code class="docutils literal notranslate"><span class="pre">np</span></code>という名前で読み込むという意味です。別に名前は<code class="docutils literal notranslate"><span class="pre">np</span></code>じゃなくとも良いのですが、<code class="docutils literal notranslate"><span class="pre">np</span></code>と読み込むのが一般的なので従いましょう。</p>
+</section>
+<section id="id6">
+<h3>7.2 ndarray型の作成法<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>早速、NumPyの根幹である多次元配列オブジェクト<strong>ndarray</strong>型を紹介します。<strong><code class="docutils literal notranslate"><span class="pre">ndarray</span></code>はリストと異なり、同じ型の要素しか格納することができません</strong>。NumPyでの最も基本的な配列の作り方は下記です。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary01</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ary01</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3]
+&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のように<code class="docutils literal notranslate"><span class="pre">array()</span></code>関数の引数としてリスト（やタプル）を用いる事で<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>型を作成します。<br />
+多次元配列は下記のようにリストをネストして作成します。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary02</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span><span class="c1"># 2行3列のnumpy配列の作成</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 1 2]
+ [3 4 5]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>ここで少し多次元配列を扱う際に<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>型について知っておくべきことを説明します。<code class="docutils literal notranslate"><span class="pre">ary02</span></code>は<span class="math notranslate nohighlight">\(2 \times 3\)</span>の多次元配列となってます。そして、一番外側の括弧<code class="docutils literal notranslate"><span class="pre">[]</span></code>には2つの要素（<code class="docutils literal notranslate"><span class="pre">[0,1,2]</span></code>と<code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code>）が含まれています。この一番外側の括弧<code class="docutils literal notranslate"><span class="pre">[]</span></code>のことを<strong>第0軸</strong>と呼びます。そして軸が持つ要素数のことを<strong>軸の大きさ</strong>（この場合軸の大きさは2）と呼びます。同様に内側の<code class="docutils literal notranslate"><span class="pre">[]</span></code>のことを第1軸と呼び、軸が持つ要素数のことを軸の大きさ（この場合軸の大きさは3）と呼びます。そして、多次元配列が持つ軸の数のことを多次元配列の<strong>次元</strong>と呼びます（この場合次元は2）。</p>
+</section>
+<section id="id7">
+<h3>問題 7.1<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>次の多次元配列の（a）「次元」と（b）「各軸の大きさ」をそれぞれ求めなさい。</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[0,1,2,3,4,5]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[[0,1,2,3,4,5]]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[[[0],[1]],[[2],</span> <span class="pre">[3]],[[4],[5]]]</span></code></p></li>
+</ol>
+<p>一定値の配列を作成することもできます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary03</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ary03=</span><span class="si">{</span><span class="n">ary03</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ary04</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ary04=</span><span class="si">{</span><span class="n">ary04</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ary03=[[0. 0.]
+ [0. 0.]
+ [0. 0.]]
+ary04=[[1. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">zeros()</span></code>は引数として<code class="docutils literal notranslate"><span class="pre">(行数，列数)</span></code>というタプルを用い行列内の全てのデータは0となります（上記の例では行列要素が0の<span class="math notranslate nohighlight">\(3 \times 2\)</span>行列）。<code class="docutils literal notranslate"><span class="pre">ones()</span></code>は行列内の全てのデータを1とします。また、<code class="docutils literal notranslate"><span class="pre">zeros_like()</span></code>は引数に多次元配列を与えるとそれと同じ形の全要素0の配列を作成します。一定値の配列を作成する関数としてはその他に<code class="docutils literal notranslate"><span class="pre">empty()</span></code>,<code class="docutils literal notranslate"><span class="pre">full()</span></code>,<code class="docutils literal notranslate"><span class="pre">ones_like()</span></code>, <code class="docutils literal notranslate"><span class="pre">empty_like()</span></code>, <code class="docutils literal notranslate"><span class="pre">full_like()</span></code>などがあります。</p>
+</section>
+<section id="id8">
+<h3>問題 7.2<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>多次元配列<code class="docutils literal notranslate"><span class="pre">[[0,1],[2,3],[4,5]]</span></code>を引数として用い<code class="docutils literal notranslate"><span class="pre">full_like()</span></code>関数の使い方を学びなさい。<br />
+（<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.full_like.html#numpy.full_like">参考マニュアル</a>）</p>
+<p>等間隔の配列を作成するには<code class="docutils literal notranslate"><span class="pre">arange()</span></code>と<code class="docutils literal notranslate"><span class="pre">linspace()</span></code>の2つの関数があります。<code class="docutils literal notranslate"><span class="pre">arange()</span></code>は引数として<code class="docutils literal notranslate"><span class="pre">([start,]stop[,step])</span></code>を持ちます（上記の例では2つ置きに0以上10未満の配列を作成してます）。<code class="docutils literal notranslate"><span class="pre">arange()</span></code>の引数として浮動小数点を用いる場合には下記のようにstopの数を含む場合があるので注意してください。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary04</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary04</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 2 4 6 8]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary05</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">ary05</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1, 0.2, 0.3, 0.4])
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">linspace()</span></code>関数の使い方は<code class="docutils literal notranslate"><span class="pre">linspace(start,</span> <span class="pre">stop,</span> <span class="pre">num)</span></code>とします。startは開始値stopは終了値numは要素の数になります。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary11</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ary11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 1.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary12</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">ary12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.16666667, 0.33333333, 0.5       , 0.66666667,
+       0.83333333, 1.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>ランダムな行列を作成したい場合もあります。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ary06</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># [0,1]の一様乱数（1次元配列）</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary06</span><span class="p">)</span>
+<span class="n">ary07</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># [0,1]の一様乱数（2×3行列）</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary07</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4.17022005e-01 7.20324493e-01 1.14374817e-04 3.02332573e-01
+ 1.46755891e-01]
+[[0.09233859 0.18626021 0.34556073]
+ [0.39676747 0.53881673 0.41919451]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ndarray</span></code>型がPython標準のリストと異なる点は下記のとおりです。</p>
+<ul class="simple">
+<li><p>C言語の配列のようにメモリの連続領域にデータが保存される</p></li>
+<li><p>基本的にすべて同じ型のデータで構成される</p></li>
+<li><p>各次元ごとの要素数が等しい</p></li>
+<li><p>配列中の全要素（もしくは一部の要素）に対し特定の演算を高速に適用できる</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>7.3 ndarray型の属性（アトリビュート）<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ndaray</span></code>型は<code class="docutils literal notranslate"><span class="pre">int</span></code>型、<code class="docutils literal notranslate"><span class="pre">float</span></code>型、<code class="docutils literal notranslate"><span class="pre">str</span></code>型と同じように属性（アトリビュート）とメソッドを持っています。属性とは型独自の変数のことで、メソッドとは型独自の関数のことです。
+<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>型は幾つかの属性を持っています。例えば、配列の要素の型は次のように<code class="docutils literal notranslate"><span class="pre">dtype</span></code>属性を使って調べることが出来ます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary08</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ary08</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;float64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>配列を生成するときに型を指定する方法は次の通りです。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary09</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary09</span><span class="p">)</span>
+<span class="n">ary09</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 0 0 0]
+ [0 0 0 0]
+ [0 0 0 0]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>NumPyはPythonで使われる組み込み型を全て使用することが出来ます。 その他にも多くのデータ型を使えます（全てのデータ型は<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html">ここ</a>に載ってます）。</p>
+<p>また、<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>型はdtypeの他にも多くの属性を持っています。その一部は下記のとおりです（全ての属性は<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html#array-attributes">ここ</a>）。</p>
+<table>
+        <tr>
+        <th>属性</th>
+        <th>説明（ary00をndarray型のインスタンスとする）</th>
+    　　</tr>
+        <tr>
+        <td>T</td>
+        <td>転置行列（ary00.T）</td>
+    　　</tr>
+        <tr>
+        <td>dtype</td>
+        <td>配列のデータタイプ（ary00.dtype）</td>
+    　　</tr>
+        <tr>
+        <td>size</td>
+        <td>配列の全要素数（ary00.size）</td>
+    　　</tr>
+        <tr>
+        <td>itemsize</td>
+        <td>各要素のバイト数（ary00.itemsize）</td>
+    　　</tr>
+        <tr>
+        <td>ndim</td>
+        <td>配列の次元（ary00.ndim）</td>
+        </tr>
+        <tr>
+        <td>shape</td>
+        <td>配列の形状を示すタプル（ary00.shape）</td>
+    　　</tr>
+        <tr>
+        <td>strides</td>
+        <td>各次元方向に一つ隣の要素に移動するために必要なバイト数をタプルで表示したもの（ary00.strides）</td>
+    　　</tr>
+        <tr>
+        <td>flags</td>
+        <td>メモリ上における`ndarray`のデータの格納の仕方についての情報</td>
+    　　</tr>
+        <tr>
+        <td>flat</td>
+        <td>`ndarray`を1次元配列に変換するイテレータ</td>
+    　　</tr>
+        <tr>
+        <td>nbytes</td>
+        <td>`ndarray`の要素によって占められてるバイト単位におけるメモリ消費量</td>
+    　　</tr>
+        <tr>
+        <td>base</td>
+        <td>`ndarray`のベースとなるオブジェクト（どのメモリを参照しているのか）</td>
+    　　</tr>
+</table></section>
+<section id="id10">
+<h3>7.4 ndarray型のメソッドおよび関数<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ndarray</span></code>型は非常に多くのメソッドも持っています。その上，多くのメソッドは関数としても定義されてます。全ての関数・メソッドについてのマニュアルは<a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.html">ここ</a>にあります。
+ここでは幾つかについて紹介します。<code class="docutils literal notranslate"><span class="pre">resize()</span></code>メソッドは多次元配列の形を変更します。<code class="docutils literal notranslate"><span class="pre">resize((第0軸の大きさ,</span> <span class="pre">第1軸の大きさ，第2軸の大きさ…))</span></code>として使います。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary10</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary11</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">ary10</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># np.resize()関数を使う。</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary10</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># .reseize()メソッドを使う。</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id11">
+<h3>7.5 ndarrayのインデックスとスライス<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ndarray</span></code>型のインデックスとスライスはlist型と同じ</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary13</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary13</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary13</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary13</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 2, 4, 6])
+</pre></div>
+</div>
+</div>
+</div>
+<p>多次元配列</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ary14</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ary14</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9, 9],
+       [7, 3],
+       [9, 8]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary14</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary14</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 8])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary14</span><span class="p">[</span><span class="mi">2</span><span class="p">][:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 8])
+</pre></div>
+</div>
+</div>
+</div>
+<p>実はndarrayにはスライシングするための固有の記法がありこの記法の方が要素へのアクセスが速いです。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ary14</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 8])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id12">
+<h3>問題 7.3<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>次のスライシングはどのような結果となるか、初めに推測したうえで実行しなさい。<br />
+<code class="docutils literal notranslate"><span class="pre">ary14[1:,</span> <span class="pre">2:]</span></code></p>
+</section>
+<section id="id13">
+<h3>7.4 ユニバーサル関数<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>Numpyは配列処理に関して非常に豊富で便利な機能を持っているライブラリです。その中の一つに、<strong>配列の全要素に対して、要素ごとに特定の関数を作用させて返す機能</strong>があります。これを<strong>ユニバーサル関数</strong>と呼びます。標準で用意されているユニバーサル関数もあれば、ユニバーサル関数を自作することもできます(<strong>frompyfunc()</strong>)。</p>
+<p><code class="docutils literal notranslate"><span class="pre">frompyfunc(関数,</span> <span class="pre">引数の数,</span> <span class="pre">出力の数)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlist01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nlist01</span><span class="p">)</span>
+<span class="n">nlist02</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1">#要素毎に2乗（ループバージョン）</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+        <span class="n">nlist02</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">nlist01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ループバージョン:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlist02</span><span class="p">))</span>
+
+<span class="c1">#要素毎に2乗（ユニバーサル関数（ufunc）バージョン）</span>
+
+<span class="n">new_pow01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">nlist01</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ユニバーサル関数バージョン：</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new_pow01</span><span class="p">))</span>
+
+<span class="c1">#要素毎に2乗（自作関数バージョン）</span>
+<span class="k">def</span> <span class="nf">ori_pow</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>        
+    <span class="k">return</span> <span class="n">b</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">uni_pow</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="n">ori_pow</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># </span>
+    <span class="n">new_pow02</span><span class="o">=</span><span class="n">uni_pow</span><span class="p">(</span><span class="n">nlist01</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;自作ユニバーサル関数バージョン：</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new_pow02</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3  4  5]
+ [ 6  7  8  9 10 11]]
+ループバージョン:
+[[  0.   1.   4.   9.  16.  25.]
+ [ 36.  49.  64.  81. 100. 121.]]
+ユニバーサル関数バージョン：
+[[  0   1   4   9  16  25]
+ [ 36  49  64  81 100 121]]
+自作ユニバーサル関数バージョン：
+[[0 1 4 9 16 25]
+ [36 49 64 81 100 121]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id14">
+<h3>7.5 ndarrayによる行列計算<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>ndarray型の行列計算において<code class="docutils literal notranslate"><span class="pre">*</span></code>,<code class="docutils literal notranslate"><span class="pre">/</span></code>,<code class="docutils literal notranslate"><span class="pre">+</span></code>,<code class="docutils literal notranslate"><span class="pre">-</span></code>,<code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>はすべて要素同士の計算になるから注意。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">mat02</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat01</span><span class="o">+</span><span class="n">mat02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 2],
+       [2, 4]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat01</span><span class="o">-</span><span class="n">mat02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 2],
+       [4, 4]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat01</span><span class="o">*</span><span class="n">mat02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  0],
+       [-3,  0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列積には<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>を用いる</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat01</span><span class="o">@</span> <span class="n">mat02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1,  0],
+       [-1,  0]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">mat01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(2)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id15">
+<h2>レポート問題<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>numpy配列(ndarray)を引数とする、ユニバーサル関数を作成し出力するプログラムを作成しなさい（他の人と異なる関数を評価する。講義でやった数式だけでなく文字列を処理する自作関数などを高く評価する）。</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.dual.html#linear-algebra">線形代数の数学関数</a>を参考に線形代数の関数群を使って線形代数に関わる計算を行いなさい。ただし、単純な内積や外積ではなく行列の固有値や線型方程式の解を求めなさい．</p></li>
+</ol>
+<p><strong>〆切：10/16（水）までにGoogleClassroomでjupyter notebook形式「id_学籍番号_03.ipynb」形式で送ること</strong></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lecture_ipynbs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">6 Pythonにおける変数とメモリの深い関係</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.1 Pythonにおけるデータと変数の取り扱い</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">問題 6.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.2 浅いコピーと深いコピー</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">問題 6.2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">7 NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">7.1 ndarray型（多次元配列型）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7.2 ndarray型の作成法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">問題 7.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">問題 7.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">7.3 ndarray型の属性（アトリビュート）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7.4 ndarray型のメソッドおよび関数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">7.5 ndarrayのインデックスとスライス</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">問題 7.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">7.4 ユニバーサル関数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">7.5 ndarrayによる行列計算</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">レポート問題</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Masashi Shiraishi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

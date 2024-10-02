@@ -1,0 +1,1880 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3 関数 &#8212; 数理工学実験2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lecture_ipynbs/MEE2_03_04web';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">数理工学実験2</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    数理工学実験２　２０２４年度
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MEE2_00.html">事前準備-Jupyter notebookの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_01web.html">9/26 第01回 Pythonの復習 -- データ型（タプル（tuple型）, 辞書（dict型）, 集合（set型）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_02.html">第02回 数理工学実験２</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/shiraishi-mu/MEE2_2024/issues/new?title=Issue%20on%20page%20%2Flecture_ipynbs/MEE2_03_04web.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lecture_ipynbs/MEE2_03_04web.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3 関数</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3 関数</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1 関数の作り方</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">問題3.1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2 モジュールを作る</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.3 名前空間とスコープ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題3.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.4 再帰</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">問題3.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">レポート課題2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">4 エラーのデバッグと例外処理</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">4.1 エラーの種類</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">4.1.1 構文上のエラー</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">4.1.2 実行時のエラー</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">4.1 3 意味上のエラー</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">4.2 例外と例外処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror">4.2.1 <code class="docutils literal notranslate"><span class="pre">NameError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valueerror">4.2.2 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror">4.2.3 IndexError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zerodivisionerror">4.2.4 <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror">4.2.5 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filenotfounderror">4.2.6 <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">問題1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.3 例外処理</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">5 その他これまでに説明しなかった高度な知識</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">5.1内包表記</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">5.1.1 リスト内包表記</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">問題2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5.1.2 辞書内包表記</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">5.1.3 集合内包表記</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">問題3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">5.2 lambda式</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">問題4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">5.3 イテレータ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">5.3.1 イテレータの基本</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">5.3.1 イテレータの例</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">5.3.2 ジェネレータ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">レポート問題</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>3 関数<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>これまで，「print()」や「type()」などpythonに初めから用意されている<strong>組み込み関数</strong>を使ってきました．ここでは改めて<strong>関数</strong>について学びます．例えば，数学の関数<span class="math notranslate nohighlight">\(y=2x\)</span>では<span class="math notranslate nohighlight">\(x\)</span>に値が代入され<span class="math notranslate nohighlight">\(2x\)</span>という演算を行い，演算結果が<span class="math notranslate nohighlight">\(y\)</span>へ出力されます．同じように，Pythonにおける関数も「データが渡され」，「そのデータに何らかの演算を施し」，「演算結果が出力」されます．それでは,早速関数を作ってみましょう．</p>
+<section id="id2">
+<h2>3.1 関数の作り方<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>関数を作るには<strong>def</strong>というキーワードを使います．ここでは，三角形の面積を計算する関数を作ってみます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 三角形を計算する関数の定義(prog08_01.py)</span>
+<span class="k">def</span> <span class="nf">triarea1</span><span class="p">():</span>
+    <span class="n">base</span><span class="o">=</span><span class="mi">10</span>                <span class="c1"># 底辺の長さ</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">5</span>               <span class="c1"># 高さ</span>
+    <span class="n">area</span><span class="o">=</span><span class="n">base</span> <span class="o">*</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1"># 三角形の面積</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;三角形の面積：&quot;</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">triarea1</span><span class="p">()</span> <span class="c1"># 関数の呼び出し</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>三角形の面積： 25.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>1行目のdefの後ろに関数の名前（今回は<code class="docutils literal notranslate"><span class="pre">triarea1()</span></code>）を書き，最後に<code class="docutils literal notranslate"><span class="pre">:</span></code>（コロン）とつけます。2行目以下は<code class="docutils literal notranslate"><span class="pre">triarea1()</span></code>関数で行われる処理になります．これが最も基本的な関数です．
+関数を呼び出すには「関数の名前()」（今回の場合は<code class="docutils literal notranslate"><span class="pre">triarea1()</span></code>）を実行するだけです．
+prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積しか計算できません．そこで，任意の「底辺」，「高さ」が与えた時に三角形の面積を計算する関数を作ってみます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 任意の底辺・高さを持つ三角形を計算する関数(prog08_02.py)</span>
+<span class="k">def</span> <span class="nf">triarea2</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span> <span class="c1"># 仮引数を用意し関数を定義する</span>
+    <span class="n">area</span><span class="o">=</span><span class="n">base</span> <span class="o">*</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1"># 三角形の面積</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;三角形の面積：&quot;</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">triarea2</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 底辺・高さの大きさ（データ）を実引数として関数へ渡した上で関数の実行</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>三角形の面積： 5.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>prog08_02.pyでは底辺と高さを任意の値とするために <strong>引数</strong> を使ってます。引数とは関数を呼ぶときにデータを渡すことが出来る仕組みです．具体的には，上の例のように<code class="docutils literal notranslate"><span class="pre">triarea2</span></code>関数の<code class="docutils literal notranslate"><span class="pre">()</span></code>の中に引数としてbase, heightといった変数を用意し，関数を呼び出すときに<code class="docutils literal notranslate"><span class="pre">()</span></code>内に具体的なデータ（今回の場合は底辺=5，高さ=2）を入れる事となります．関数の定義時に<code class="docutils literal notranslate"><span class="pre">()</span></code>内に用意する引数を<strong>仮引数</strong>と呼び，関数を呼び出すときに<code class="docutils literal notranslate"><span class="pre">()</span></code>内に入れるデータのことを<strong>実引数</strong>と呼びます．<code class="docutils literal notranslate"><span class="pre">()</span></code>内に引数を入れて関数を実行する事を「<strong>引数を渡す</strong>」といいます．</p>
+<p>続いて，関数によって処理されたデータを返してくれる機能（<strong>関数からの値の返却</strong>）について説明します．下のプログラムprog08_03.pyを見て下さい。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 任意の底辺・高さを持つ三角形を計算する関数(prog08_03.py)</span>
+<span class="k">def</span> <span class="nf">triarea2</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span> <span class="c1"># 仮引数を用意し関数を定義する</span>
+    <span class="n">area</span><span class="o">=</span><span class="n">base</span> <span class="o">*</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1"># 三角形の面積</span>
+    <span class="k">return</span> <span class="n">area</span> <span class="c1"># 面積を返す</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">triangle</span><span class="o">=</span><span class="n">triarea2</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># 底辺5・高さ10の三角形の面積</span>
+<span class="n">triangle</span> <span class="o">*</span> <span class="mi">5</span>             <span class="c1"># 三角形の面積を5倍する</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>125.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>上のprog08_03.pyとprog08_02.pyを比較すると4行目が<code>print(“三角形の面積：”, area)</code>→<code>return area</code>へと変更されているのが分かります．<strong>return</strong>は関数を呼び出したときに，「returnの右側に書いたデータ」を返します．関数を呼び出したときに返ってくるデータを<strong>戻り値(返り値)</strong>といいます．</p>
+<section id="id3">
+<h3>問題3.1<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>辺の長さを指定して正三角形の面積を計算する関数を作成しなさい．（prog08_04.py）
+（ヒント：mathライブラリをインポートし<code class="docutils literal notranslate"><span class="pre">sin()</span></code>関数を使うと高さの計算が容易）
+<a class="reference external" href="http://docs.python.jp/3/library/math.html#trigonometric-functions">数学関数（math）</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">return</span></code>文は複数存在しても大丈夫です．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (a, b)の最小値を求めて返す関数</span>
+<span class="k">def</span> <span class="nf">min1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;return文１つ&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
+        <span class="nb">min</span><span class="o">=</span><span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">min</span><span class="o">=</span><span class="n">b</span>
+    <span class="k">return</span> <span class="nb">min</span>
+    
+<span class="k">def</span> <span class="nf">min2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;return文2つ&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">return</span> <span class="n">b</span>
+
+<span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n1:&#39;</span><span class="p">))</span>
+<span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n2:&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最小値は</span><span class="si">{}</span><span class="s1">です。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値は</span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">)</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="k">return</span> <span class="n">a</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">return</span> <span class="n">b</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n1:&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n2:&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最小値は</span><span class="si">{}</span><span class="s1">です。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)))</span>
+
+<span class="nn">File ~/Dropbox/2024数理工学実験２/2024Shiraishi/.venv/lib/python3.12/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<p>また，複数の値を返すこともできる．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2値の最小値と最大値を求める</span>
+
+<span class="k">def</span> <span class="nf">min_max1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;aとbの大きい方と小さいほうを両方とも返す関数&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
+        <span class="nb">min</span><span class="o">=</span><span class="n">a</span>
+        <span class="nb">max</span><span class="o">=</span><span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">min</span><span class="o">=</span><span class="n">b</span>
+        <span class="nb">max</span><span class="o">=</span><span class="n">a</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">)</span>
+
+<span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n1:&#39;</span><span class="p">))</span>
+<span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n2:&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最小値、最大値の組は</span><span class="si">{}</span><span class="s1">です。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_max1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">min_max2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;aとbの大きい方と小さいほうを両方とも返す関数(1行で返す)。条件演算子x if y else zを使った&quot;&quot;&quot;</span>    
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span> <span class="k">else</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n1:&#39;</span><span class="p">))</span>
+<span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n2:&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最小値、最大値の組は</span><span class="si">{}</span><span class="s1">です。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_max2</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値、最大値の組は</span><span class="si">{</span><span class="n">min_max2</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2>3.2 モジュールを作る<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>Pythonには組み込み関数以外にも特定の用途に応じて関数やメソッドがまとめられており，それらを<strong>モジュール</strong>と呼びます．モジュールの使い方は「情報処理」の講義でやりましたがちょっと復習してみます（<a class="reference external" href="http://kino.sub.jp/IT2015_old/IT_06.html">モジュールのインポートと使い方</a>）．例えば，「<code class="docutils literal notranslate"><span class="pre">random</span></code>モジュール（乱数モジュール）」の中にある「0以上1以下のランダムな浮動小数点」を発生する<code class="docutils literal notranslate"><span class="pre">random()</span></code>関数は下記のようにして呼び出します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0以上1以下のランダムな浮動小数点を呼び出す</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5659842195626246
+</pre></div>
+</div>
+</div>
+</div>
+<p>モジュールは関数がまとめて定義されているものです．もちろん，自分で作ることもできるので早速作ってみましょう．今回は「円の面積」や「円周の長さ」といった円に関わる関数をモジュールとしてまとめてみます．まず，下記に「円の面積」と「円周の長さ」を計算する関数を書きます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 円の面積を計算する関数</span>
+<span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="n">menseki</span><span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="mf">3.14</span>
+    <span class="k">return</span> <span class="n">menseki</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 円周の長さを計算する関数</span>
+<span class="k">def</span> <span class="nf">cercom</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="n">enshu</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="mf">3.14</span><span class="o">*</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">enshu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cercom</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31.400000000000002
+</pre></div>
+</div>
+</div>
+</div>
+<p>それではこれら2つの関数を含む「円モジュール」を作成します．上の2つのプログラムをSpyder上でcircle.pyというスクリプトファイルとして保存してください（jupyter notebookを立ち上げたディレクトリと同じディレクトリに保存すること）．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 円モジュール circle.py</span>
+<span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="n">menseki</span><span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="mf">3.14</span>
+    <span class="k">return</span> <span class="n">menseki</span>  
+
+<span class="k">def</span> <span class="nf">cercom</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="n">enshu</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="mf">3.14</span>
+    <span class="k">return</span> <span class="n">enshu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>続いて，pythonのコンソール上（jupyter notebook上でもOK）で以下のように記述します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">circle</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">cercom</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>314.0
+62.800000000000004
+</pre></div>
+</div>
+</div>
+</div>
+<p>非常に簡単ですね．さて，今回のプログラムでは円周の長さとして変な値が出力されたと感じるかも知れませんが，これは2進数の浮動小数点ではごく自然なものでありバグではありません．2進数の浮動小数点演算をサポートするすべての言語で同じ種類の問題を抱えています．要するに，<code class="docutils literal notranslate"><span class="pre">0.1</span></code>を2進数で正確に表現することは出来ないのです．このことについては後で詳しく説明します．</p>
+</section>
+<section id="id5">
+<h2>3.3 名前空間とスコープ<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>関数を用いモジュールとしてまとめるとプログラミングを便利に楽に作成できるようになります．ここでは，プログラム内で関数を使う際に注意が必要なものが<strong>名前空間</strong>と<strong>スコープ</strong>という概念です．名前空間とは変数などのオブジェクト（pythonの場合関数やメソッドなど全てがオブジェクト）が所属する場所のことです．そして,スコープとはプログラム内でオブジェクトが有効になる範囲のことです．Pythonでよく使うスコープは<strong>モジュールスコープ</strong>と<strong>ローカルスコープ</strong>の2つです．
+言葉だけだと分かりにくいので例を見てみましょう．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#名前空間とスコープの例（1）</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="c1"># a,bは関数の外つまりモジュール名前空間に所属（下で定義されているfunc1()以外の範囲がグローバルスコープになります．）</span>
+<span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
+    <span class="n">a</span><span class="o">=</span><span class="mi">3</span>     <span class="c1"># aは関数func1()のローカル名前空間に所属（この関数内をfunc1()のローカルスコープといいます．）</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func1</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>上のプログラムの例では，関数func1()の外で変数a,bが定義されておりa,bはモジュール名前空間に所属してます．一方，func1()の中では新たに変数aが定義されておりこのaはfunc1()のローカル名前空間に所属しています．<strong>この関数の中にあるaと関数の外にあるaは全く関係ありません</strong>．したがって，func1()を呼び出したときにはfunc1()内で定義されたa=3が出力され，関数の外ではa=1が出力されることになります．</p>
+<section id="id6">
+<h3>問題3.3<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>以下のプログラムがどのような出力を示すか，予想してください．その後プログラムを実行し結果を確認してください．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 名前空間とスコープの例</span>
+<span class="k">def</span> <span class="nf">func3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x=&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+<span class="n">x</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">z</span><span class="o">=</span><span class="n">func3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z=&quot;</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x=&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y=&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id7">
+<h2>3.4 再帰<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>関数を使って有名でちょっとテクニカルな<strong>再帰</strong>というアルゴリズムを紹介します．初めに階乗の計算を行う関数として「繰り返し」を用いた場合と「再帰」を用いた場合で比較します．</p>
+<p><span class="math notranslate nohighlight">\(5!=120\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 繰り返しを用いた階乗計算の関数</span>
+<span class="k">def</span> <span class="nf">factI</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">result</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">=</span> <span class="n">result</span><span class="o">*</span><span class="n">n</span>
+        <span class="c1">#n= n-1</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factI</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 再帰を用いた階乗計算を行う関数</span>
+<span class="k">def</span> <span class="nf">factR</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factR</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>     
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factR</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<p>再帰を用いたプログラムは慣れないうちは読みにくいかも知れませんが，短いプログラムであり慣れると分かり易くなってきます．
+通常，再帰的な定義は「特別に定義する部分」と「再帰的に定義する部分」の2つの部分により構成されます．例えば上の例で言えば，</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(1! = 1\)</span> (特別に定義する部分)</p></li>
+<li><p><span class="math notranslate nohighlight">\(n!=n \times (n-1)!\)</span>　（再帰的に定義する部分）</p></li>
+</ul>
+<p>の2か所がそれに相当します．
+さて，もう少し再帰に慣れるためにもう一つ「フィボナッチ数列」について考えてみます．フィボナッチ数列とは以下のような数列のことです．</p>
+<p><span class="math notranslate nohighlight">\(a_0=1, a_1=1, a_2=2, a_3=3, a_4=5, a_5=8, \dots\)</span></p>
+<p>階乗計算と同じように「特別に定義する部分」と「再帰的に定義する部分」の2つに分けると次のようになります．</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a_0=1, a_1=1\)</span>（特別に定義する部分）</p></li>
+<li><p><span class="math notranslate nohighlight">\(a_{n}=a_{n-1}+a_{n-2}\)</span>（再帰的に定義する部分）</p></li>
+</ul>
+<section id="id8">
+<h3>問題3.4<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>上記の定義を参考にフィボナッチ数列を作成する関数を作成しなさい．ただし，項の数を関数の引数として渡すこと．</p>
+</section>
+<section id="id9">
+<h3>レポート課題2<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>再帰を用いて「最大公約数」「最小公倍数」を計算する関数を含むモジュールを作成しなさい．（ただし，mathライブラリに用意されている最大公約数の関数<code class="docutils literal notranslate"><span class="pre">math.gcd()</span></code>を使わない事）．モジュールのpythonファイルは「id_学籍番号_02v1.py」として下さい．また，モジュールを実行するjupyter notebookファイルは「id_学籍番号_02v1.ipynb」として</p>
+<p><strong>〆切：10/08（日）18:00までに学習支援システムで「id_学籍番号_02v1.py」，「id_学籍番号_02v1.ipynb」形式で2つのファイルを送ること</strong></p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id10">
+<h1>4 エラーのデバッグと例外処理<a class="headerlink" href="#id10" title="Link to this heading">#</a></h1>
+<p>これまで「情報処理」「数理工学実験2」とPythonを学んできて様々なエラーが現れそれに対処してきたと思います．ここではエラーの種類や作成したプログラムのテストまたデバッグや例外処理と言ったことを学んでいきます．ここではある程度系統立ててエラーとそのデバック方法について学びますがプログラムのデバッグは系統立ててできるとは限りません．とにかくプログラム上の問題の追跡に専念することです．問題が分かれば解決は比較的容易であり問題を見つけることにデバッグの本質があります．（ちなみに，Pythonでは基本的にエラーの追跡結果は<strong><code class="docutils literal notranslate"><span class="pre">Traceback</span></code></strong>として表示されます．）
+さて，以下エラーについて学ぶ前にデバッグ方法の答えを言うならば<strong>とにかく問題がありそうな箇所の直前と直後で<code class="docutils literal notranslate"><span class="pre">print()</span></code>関数を用いて変数を出力してみよ</strong>という事に尽きます．プログラムエラーのデバッグ作業のしんどさは常に付きまとうものでデバッガと呼ばれるデバッグツールがいくつも存在していますが，どんな言語であっても率直に言って上記の<code class="docutils literal notranslate"><span class="pre">print()</span></code>関数を使う方法以上にスピードをもってデバッグする方法はありません（少なくとも僕は知らない）．（主に「ThinkPython」和訳を参考にしてます）</p>
+<section id="id11">
+<h2>4.1 エラーの種類<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p>大きく分けてエラーの種類は3種類あります．1つ目は<strong>構文上のエラー</strong>，2つ目は<strong>実行中のエラー</strong>，3つ目は<strong>意味上のエラー</strong>です．構文上のエラーと実行中のエラーはPythonが何らかのメッセージをTracebackしてくれるのに対して，意味上のエラーはメッセージが表示されずプログラムが実行されるので自分でエラーを探す必要があります．</p>
+<section id="id12">
+<h3>4.1.1 構文上のエラー<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>構文上のエラーとは関数やクラスを定義<code class="docutils literal notranslate"><span class="pre">def</span></code>した後にコロン<code class="docutils literal notranslate"><span class="pre">:</span></code>を入れてなかったり，<code class="docutils literal notranslate"><span class="pre">{</span></code>を閉じてなかったりするケースです．また，インデントが正しく行われてる場合もこのエラーに含まれます．構文上のエラーを<code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>と呼び，インデントのエラー<code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>と呼びます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello !)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello !)</span>
+                   <span class="o">^</span>
+<span class="ne">SyntaxError</span>: EOL while scanning string literal
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記は<code class="docutils literal notranslate"><span class="pre">'</span></code>をつけ忘れたために<code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>が出力されてます（EOLとはEnd of Lineつまり「行の終わり」こと）．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記はインデントを行わなかったため<code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>が出力されています．</p>
+<p>これらのようにエラーメッセージは必ずしも有用とは限りませんが，エラーが起こった場所について教えてくれることがあります．ただし，常にエラーの場所を示しているとは限らずエラーのある場所より前の場所を示していることもあるので注意してデバッグしましょう．</p>
+</section>
+<section id="id13">
+<h3>4.1.2 実行時のエラー<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>構文上のエラーが無くとも実行時にエラーが出ることもあります．ここではそれらのエラーについて考えてみます．</p>
+<ol class="arabic simple">
+<li><p>全く反応しない場合</p></li>
+</ol>
+<ul class="simple">
+<li><p>この場合は（標準）出力に関するコマンドや関数が実行されていない場合に起こります．また，出力結果をファイルに表示している場合標準出力（ターミナル）上に表示されず慌てるかもしれません．慌てずソースコードの出力部分をチェックしましょう．</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>プログラムが終わらない場合</p></li>
+</ol>
+<ul class="simple">
+<li><p>「プログラムがハングしているとき」や「無限ループ」や「無限の再帰処理」などプログラムが終わらない場合があります．プログラムがハングする代表的な原因はPythonプログラムの実行以外に多くのプログラムを立ち上げていることにあります．例えば，Webブラウザを立ち上げ，動画を見てWordやExcelやゲームを立ち上げながらPythonのプログラミングを行っている場合です．PCに負担が掛かり過ぎるとハングすることがあるので注意しましょう（そもそも，マルチタスクで仕事をすると「自分の頭もハングする」のでご注意を！）．</p></li>
+<li><p>「無限ループ」に嵌った場合はまず怪しいと思うループ直前に<code class="docutils literal notranslate"><span class="pre">print(&quot;ループ開始&quot;)</span></code>，ループ直後に<code class="docutils literal notranslate"><span class="pre">print(&quot;ループ終了&quot;)</span></code>と打ちます．もし，「<code class="docutils literal notranslate"><span class="pre">ループ開始</span></code>」と表示され「ループ終了」と表示されなければ無限ループに嵌っていることになります．無限ループのデバッグは例えば以下のようにします．</p></li>
+</ul>
+<p><code class="docutils literal notranslate"> <span class="pre">x=-10</span>&#160; <span class="pre">y=5</span>&#160; <span class="pre">while</span> <span class="pre">x&lt;0</span> <span class="pre">and</span> <span class="pre">y&gt;0:</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">x+=1</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">y-=1</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">print(&quot;x={}&quot;.format(x))</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">print(&quot;y={}&quot;.format(y))</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">print(&quot;条件:{}&quot;.format(x&lt;0</span> <span class="pre">and</span> <span class="pre">y&gt;0))</span> </code></p>
+<p>上記のように書いておくと，ループ実行の際に’x’，’y’の値が出力され条件が満たされているのか否か（<code class="docutils literal notranslate"><span class="pre">True</span></code>,<code class="docutils literal notranslate"><span class="pre">False</span></code>）が分かります．</p>
+<ul class="simple">
+<li><p>「無限再帰」にはまった場合は実行はしばらく続き<code class="docutils literal notranslate"><span class="pre">&quot;RuntimeError:</span> <span class="pre">Maximum</span> <span class="pre">recursion</span> <span class="pre">depth</span> <span class="pre">exceeded&quot;</span></code>のエラーが出ます（ちなみに，再帰を最大回数行いましたと言ってます）．無限再帰に嵌った時も無限ループと同様に繰り返しを行うたびに終了の条件に変数が向かっているのかチェックするのが基本となります．</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>例外（<code class="docutils literal notranslate"><span class="pre">exception</span></code>）が発生する場合</p></li>
+</ol>
+<ul class="simple">
+<li><p>例外については例外の処理も含めて後で学ぶことにします．</p></li>
+</ul>
+</section>
+<section id="id14">
+<h3>4.1 3 意味上のエラー<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>上記2つのエラー（「構文上のエラー」「実行上のエラー」）はPython側で何らかのエラー情報を出力してくれるという意味で容易なエラーです．それらと比較し「意味上のエラー」というのは厄介です．なぜなら、そのプログラムが処理すべきことを知っているのはプログラム作成者（あなた）だけであり，当然そのプログラムがエラーである理由もあなたしか分からないからです．さて，このような場合も基本的なデバッグ作業はこれまでと同じです．基本は怪しそうなコードの直前と直後で<code class="docutils literal notranslate"><span class="pre">Print()</span></code>関数を用い変数を表示させるという方法です．
+以下ではそれ以外にエラーを見つけデバッグするためにチェックすべき点を上げます．</p>
+<ol class="arabic simple" start="2">
+<li><p>プログラムの出力結果がダメ</p></li>
+</ol>
+<ul class="simple">
+<li><p>プログラムの中で実行されていない個所などがないかチェック</p></li>
+<li><p>自分が想定していないことが起きていないかチェック</p></li>
+<li><p>他人のコードを部分的に借りてきている場合は，そのコードを自分が完全に理解しているかチェックする必要がある（自分が理解していないコードを部分的に使わない！）．</p></li>
+</ul>
+<ol class="arabic" start="3">
+<li><p>引数の中にさらに関数やメソッドが入りその中に引数が入り・・・という長い表現を使わないようにすること．</p></li>
+<li><p>関数やメソッドが期待した戻り値を返さない場合
+複雑な表現の式を<code class="docutils literal notranslate"><span class="pre">return</span></code>文で返すと，その値が正しいのか間違っているのか判断できなくなることがる．そこで，</p>
+<p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">self.hands[i].removeMatches()</span></code></p>
+<p>と言った複雑な式を返す前に</p>
+<p><code class="docutils literal notranslate"><span class="pre">count=self.hands[i].removeMatches()</span> <span class="pre">return</span> <span class="pre">count</span>&#160; </code></p>
+<p>として，<code class="docutils literal notranslate"><span class="pre">return</span></code>文の直前で<code class="docutils literal notranslate"><span class="pre">count</span></code>の値を表示できるようにしよう．</p>
+</li>
+<li><p>行き詰った時</p></li>
+</ol>
+<ul class="simple">
+<li><p>取り敢えずコンピュータから離れる</p></li>
+<li><p>一晩放置</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>助けが必要な時<br />
+できる限りプログラムを簡単化し，問題がある部分を明確にしてから他人に聞くようにすること．</p></li>
+</ol>
+</section>
+</section>
+<section id="id15">
+<h2>4.2 例外と例外処理<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<p>Pythonでは「実行時のエラー」の多くは例外として扱われます．例外が発生し，プログラムの実行が停止されるとトレースバック（Traceback:追跡結果）が表示されます．トレースバックにはエラー原因の情報が記述されているので読む癖をつけましょう．<strong>特に，トレースバックの最後の行を読むことが重要です</strong>．
+例外はその種類に応じて幾つかに分類されます．その一部を紹介します．（全ての例外については<a class="reference external" href="http://docs.python.jp/3/library/exceptions.html">ここ</a>で紹介されてます）</p>
+<section id="nameerror">
+<h3>4.2.1 <code class="docutils literal notranslate"><span class="pre">NameError</span></code><a class="headerlink" href="#nameerror" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">NameError</span></code>は未定義のオブジェクトを参照しようとした場合に発生する例外です．Pythonでは変数、関数、モジュールもすべてオブジェクトなので，未定義の変数、関数、モジュールを呼び出す際に発生します。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="valueerror">
+<h3>4.2.2 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code><a class="headerlink" href="#valueerror" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ValueError</span></code>は</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kinop</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">math_eng2</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">MEE2_03_04</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">セル</span> <span class="mi">74</span> <span class="n">line</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://wsl%2Bubuntu-20.04/home/kinop/work/math_eng2/src/MEE2_03_04.ipynb#Y133sdnNjb2RlLXJlbW90ZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">C</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;test&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indexerror">
+<h3>4.2.3 IndexError<a class="headerlink" href="#indexerror" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">IndexError</span></code>はシーケンス型（リスト、タプル）をインデックスで参照する際にシーケンスの要素数以上を指定した場合に発生します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">list1</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kinop</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">math_eng2</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">MEE2_03_04</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">セル</span> <span class="mi">77</span> <span class="n">line</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">()</span>
+      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://wsl%2Bubuntu-20.04/home/kinop/work/math_eng2/src/MEE2_03_04.ipynb#Y136sdnNjb2RlLXJlbW90ZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://wsl%2Bubuntu-20.04/home/kinop/work/math_eng2/src/MEE2_03_04.ipynb#Y136sdnNjb2RlLXJlbW90ZQ%3D%3D?line=1&#39;</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">list1</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="zerodivisionerror">
+<h3>4.2.4 <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code><a class="headerlink" href="#zerodivisionerror" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>は数値型（int型、float型）を0で割ろうとするときに発生します。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">/</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kinop</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">math_eng2</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">MEE2_03_04</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">セル</span> <span class="mi">80</span> <span class="n">line</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://wsl%2Bubuntu-20.04/home/kinop/work/math_eng2/src/MEE2_03_04.ipynb#Y142sdnNjb2RlLXJlbW90ZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="mi">3</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="typeerror">
+<h3>4.2.5 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code><a class="headerlink" href="#typeerror" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TypeError</span></code>は実行時に相応しくない型のオブジェクトを使用したときに発生します。例えば、文字列型と整数型の足し算を実行した場合に文字列型において足し算は定義されてないので<code class="docutils literal notranslate"><span class="pre">TypeError</span></code>が発生します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;test&quot;</span><span class="o">+</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kinop</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">math_eng2</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">MEE2_03_04</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">セル</span> <span class="mi">83</span> <span class="n">line</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://wsl%2Bubuntu-20.04/home/kinop/work/math_eng2/src/MEE2_03_04.ipynb#Y145sdnNjb2RlLXJlbW90ZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="s2">&quot;test&quot;</span><span class="o">+</span><span class="mi">2</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filenotfounderror">
+<h3>4.2.6 <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code><a class="headerlink" href="#filenotfounderror" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>は開こうとしたファイルがない時に発生します．開こうとしたファイル名を間違えた時にもよく発生するので注意してください．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in_file1</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;prog11_00data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kinop</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">math_eng2</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">MEE2_03_04</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">セル</span> <span class="mi">86</span> <span class="n">line</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell://wsl%2Bubuntu-20.04/home/kinop/work/math_eng2/src/MEE2_03_04.ipynb#Y151sdnNjb2RlLXJlbW90ZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">in_file1</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;prog11_00data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;prog11_00data.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>これまで，Pythonではすべてがオブジェクトであると言いました．例外もオブジェクトであり，<strong><code class="docutils literal notranslate"><span class="pre">BaseException</span></code>クラス</strong>のオブジェクト（インスタンス）です．</p>
+</section>
+<section id="id16">
+<h3>問題1<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="http://docs.python.jp/3/library/exceptions.html">ここ</a>を読んで，上で上げたもの以外の例外を3つ試してみなさい．</p>
+</section>
+</section>
+<section id="id17">
+<h2>4.3 例外処理<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
+<p>上記の例外がプログラム実行中に現れた場合にその例外の種類に応じてプログラムを終了したり，中断したり実行状況を変えたい場合があります．そのような場合に用いる文が<code class="docutils literal notranslate"><span class="pre">try:</span> <span class="pre">～</span> <span class="pre">except:</span></code>文です．最も簡単な例を見てみましょう．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ZeroDivisionErrorの例</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0で割れません。&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0で割れません。
+</pre></div>
+</div>
+</div>
+</div>
+<p>例外処理の流れは下記のとおりです．</p>
+<p><code class="docutils literal notranslate"><span class="pre">try:</span>&#160;&#160;&#160;&#160; <span class="pre">（例外が発生するかも知れない処理）</span> <span class="pre">except</span> <span class="pre">例外1:</span>&#160;&#160;&#160;&#160; <span class="pre">（例外1が発生した場合の処理）</span> <span class="pre">except</span> <span class="pre">例外2:</span>&#160;&#160;&#160;&#160; <span class="pre">（例外2が発生した場合の処理）</span> <span class="pre">else:</span>&#160;&#160;&#160;&#160; <span class="pre">（例外が発生しない場合の処理）</span> <span class="pre">finally:</span>&#160;&#160;&#160;&#160; <span class="pre">（例外が発生してもしなくとも実行される処理）</span></code></p>
+<p>最後の<code class="docutils literal notranslate"><span class="pre">finally</span></code>は使う機会があまりないかも知れません．基本的に例外処理は例外を明示的に捉えたいときに行う処理です．実際に皆さんがプログラミングに当たって<strong>例外処理を使うケースはファイルの入出力処理</strong>だと思います．例えば以下のような処理です（<a class="reference external" href="http://kino.sub.jp/Prog2016/prog11_02data.txt">prog11_02data.txt</a>をDLして下さい）．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">fileIn01</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;prog11_01data.txt&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line1</span> <span class="ow">in</span> <span class="n">fileIn01</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line1</span><span class="p">)</span>
+    <span class="n">fileIn01</span><span class="o">.</span><span class="n">close</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;例外の発生&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>例外の発生
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">fileIn02</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;prog11_02data.txt&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line1</span> <span class="ow">in</span> <span class="n">fileIn02</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line1</span><span class="p">)</span>
+    <span class="n">fileIn02</span><span class="o">.</span><span class="n">close</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;例外の発生&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pythonプログラミングを用い自由になろう！
+
+
+
+Web上で、
+
+データ解析で、
+
+シミュレーションで、
+
+
+
+自分の思うがままにプログラミング。
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">except</span></code>文は<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code>文で代用できるのではないかという疑問を持つかと思います．<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code>文では<code class="docutils literal notranslate"><span class="pre">if</span></code>文内での処理も<code class="docutils literal notranslate"><span class="pre">else</span></code>文内での処理も<strong>本来やりたい処理が記述</strong>されます．それに対して<code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">except</span></code>文では<code class="docutils literal notranslate"><span class="pre">try</span></code>文内には本来やりたい処理が書かれるのに対し，<code class="docutils literal notranslate"><span class="pre">except</span></code>文には<strong>本来やりたくない（例外的な）処理が記述</strong>されます．これはプログラムの可読性に関わってきます．他の人のプログラムを読んでアルゴリズムを理解したい場合に，<code class="docutils literal notranslate"><span class="pre">except</span></code>文を無視して読んで構わないという事を意味してます．</p>
+<p>エラーとそのデバッグ作業はプログラミングの中で最も労力が掛かりますが，デバッグ作業抜きのプログラムはあり得ません．地道にエラーに対処しましょう．</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id18">
+<h1>5 その他これまでに説明しなかった高度な知識<a class="headerlink" href="#id18" title="Link to this heading">#</a></h1>
+<p>これまでの知識で基本的なPythonの知識は概ねOKです．最後にこれまで説明しなかった少し高度なPythonの知識について，いくつか説明します．このような高度な知識は，たとえ自分が使わなくとも他人のプログラムを読むときに必要となるのです．（ここで扱ってる内容はすべて「<strong>関数型プログラミング</strong>」に関わる内容です。「関数型プログラミング」は「オブジェクト指向プログラミング」と対照的なプログラミング手法です。オブジェクト指向プログラミングはオブジェクト中心のプログラム手法であるのに対し、関数型プログラミングはすべてを関数として扱うプログラミング手法です。Pythonは手続型プログラミング、オブジェクト型プログラミング、関数型プログラミングのどの手法でも書くことができます。）</p>
+<section id="id19">
+<h2>5.1内包表記<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
+<p><strong>内包表記</strong>はPythonでは比較的新しい機能です．<code class="docutils literal notranslate"><span class="pre">for</span></code>，<code class="docutils literal notranslate"><span class="pre">while</span></code>といった繰り返し処理を用い連続的なリストや辞書を生成できますが，Pythonでは通常使われません．その効率的な手法（簡潔な上に生成速度が速い）が内包表記です．内包表記は分かりづらい面もありますので，自分がプログラムを作成する上では必ずしも使う必要はありません．ただし，他の人のプログラムを読む際に必要となるケースがありますので，知識としては知っておきましょう（内包表記できる型はリスト，辞書，集合です．タプルは内包表記できません）．</p>
+<p>内包表記の基本的な書き方は</p>
+<p><code class="docutils literal notranslate"><span class="pre">式</span> <span class="pre">for</span> <span class="pre">繰り返し変数</span> <span class="pre">in</span> <span class="pre">シーケンス</span></code></p>
+<p>になります．</p>
+<section id="id20">
+<h3>5.1.1 リスト内包表記<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>リストを内包表記により作成する場合に<strong>リスト内包表記</strong>が用いられます．言葉で説明するより「通常の書き方」と「リスト内包表記」を比較した方が分かり易いので下記の具体的な例を見て下さい．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0～9までの2乗の値をデータとしてリスト化（forを用いた手法）</span>
+<span class="n">lst01</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">lst01</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0～9までの2乗の値をデータとしてリスト化（リスト内表表記）</span>
+<span class="n">lst02</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">lst02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のようにリスト内包表記を用いると非常に簡潔になります．もう少し複雑なケースを取り扱ってみましょう．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst03</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0:
+        <span class="n">lst03</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst03</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 4, 16, 36, 64, 100, 144, 196, 256, 324]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst04</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0]
+<span class="nb">print</span><span class="p">(</span><span class="n">lst04</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 4, 16, 36, 64, 100, 144, 196, 256, 324]
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記は<code class="docutils literal notranslate"><span class="pre">for</span></code>文の中に<code class="docutils literal notranslate"><span class="pre">if</span></code>文が入っており，偶数のみ<span class="math notranslate nohighlight">\(x^2\)</span>してリストを作成してます．もっと複雑なプログラムを内包表記で書くことも可能です．実は内包表記は簡潔なだけでなく計算実行速度が速くなります．プログラムの実行速度を測るために<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>というマジックコマンドを使います．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">lst01</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">lst01</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.46 ms ± 26.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">lst02</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.16 ms ± 19.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>上記のように1.25倍ほどスピードが上がってます．上の例は単純で小さいプログラムなのでさほど意義は感じられませんが，大規模プログラムではこの差は大きいものとなります.</p>
+</section>
+<section id="id21">
+<h3>問題2<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p>以下の複数の<code class="docutils literal notranslate"><span class="pre">for</span></code>文を記述したリスト内包表記とその結果を見て，同じ結果を出力するプログラムをリスト内包表記を用いず<code class="docutils literal notranslate"><span class="pre">for</span></code>文を用いて作りなさい．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst05</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]]</span>
+<span class="n">lst05</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11, 21, 31, 12, 22, 32, 13, 23, 33]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id22">
+<h3>5.1.2 辞書内包表記<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>リスト同様に辞書も内包表記を用いて作成することが出来ます．リスト内包表記と異なる点は辞書には「キー」と「値」がある点です．辞書を作成する前に，そこで使用する<code class="docutils literal notranslate"><span class="pre">zip()</span></code>関数について説明します．<code class="docutils literal notranslate"><span class="pre">zip()</span></code>関数はデータ数が同じ2つのシーケンス型を引数として渡し，2つのシーケンスからデータを順番に引き渡します．<code class="docutils literal notranslate"><span class="pre">zip</span></code>関数の動作は下記のとおりです．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst06</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="n">lst07</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lst06</span><span class="p">,</span><span class="n">lst07</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a 1
+b 2
+c 3
+d 4
+e 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>それでは，「2つのリストから辞書を作成する通常の方法」と「内包表記を用いる方法」の2つを比較します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2つのリストから辞書を生成（forループバージョン）</span>
+<span class="n">dic01</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">num</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">num_e</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;three&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">num_e</span><span class="p">):</span>
+    <span class="n">dic01</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">n</span><span class="p">:</span><span class="n">c</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dic01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: &#39;one&#39;, 2: &#39;two&#39;, 3: &#39;three&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2つのリストから辞書を生成（辞書内表表記バージョン）</span>
+<span class="n">num</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">num_e</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;three&#39;</span><span class="p">]</span>
+<span class="n">dict2</span><span class="o">=</span><span class="p">{</span><span class="n">n</span><span class="p">:</span><span class="n">c</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">num_e</span><span class="p">)}</span>
+<span class="n">dict2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: &#39;one&#39;, 2: &#39;two&#39;, 3: &#39;three&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id23">
+<h3>5.1.3 集合内包表記<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p>リスト，辞書と同様に集合(set)でも内包表記できます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, 4, 5, 6, 7}
+&lt;class &#39;set&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id24">
+<h3>問題3<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p>集合内包表記を用いて次の名前のリストを文字列を小文字に変換しながらset型に変換して、重複する要素を取り除きなさい．</p>
+<p><code class="docutils literal notranslate"><span class="pre">names=[&quot;BOB&quot;,</span> <span class="pre">&quot;burton&quot;,</span> <span class="pre">&quot;dave&quot;,</span> <span class="pre">&quot;bob&quot;]</span></code></p>
+<p>ヒント、str型を小文字に変換するメソッドは<code class="docutils literal notranslate"><span class="pre">lower()</span></code>です．</p>
+</section>
+</section>
+<section id="lambda">
+<h2>5.2 lambda式<a class="headerlink" href="#lambda" title="Link to this heading">#</a></h2>
+<p>Pythonでは<strong>lambda式</strong>と呼ばれる，使い捨ての関数を定義することができます．lambda式はその名の通り<strong>関数でありながら文ではなく式</strong>であり、名前を持たない関数であることから<strong>無名関数</strong>とも呼ばれます．lambda式の利点はその単純さにあります．
+lambda式の定義は次の通りです．</p>
+<p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">引数のリスト</span> <span class="pre">:</span> <span class="pre">引数を使った式（戻り値）</span></code></p>
+<p>早速、例を見てみます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lambda式のもっとも簡単な例 x,y を引数として受け取りx*x+yを戻り値として返すlambda式</span>
+<span class="n">mylamf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mylamf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mylamf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+31
+</pre></div>
+</div>
+</div>
+</div>
+<p>lambda式は**<code class="docutils literal notranslate"><span class="pre">map()</span></code><strong>，</strong><code class="docutils literal notranslate"><span class="pre">sorted()</span></code><strong>，</strong><code class="docutils literal notranslate"><span class="pre">filter()</span></code>** 関数などとの組み合わせで威力を発揮します．まず，<code class="docutils literal notranslate"><span class="pre">map()</span></code>関数です．
+使い方は</p>
+<p><code class="docutils literal notranslate"><span class="pre">map(function,</span> <span class="pre">iterable)</span></code></p>
+<p>functionには関数が入り，iterableにはリスト型，タプル型，辞書型，set型，文字列型が入ります(iterableは後で説明します)。具体的に見てみましょう。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2つのリストlist01, list02の要素をx,yへ渡しx+2yを返すプログラム</span>
+<span class="n">list01</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">list02</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># map関数もlambda式も使わない例</span>
+<span class="n">lst03</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">list01</span><span class="p">,</span> <span class="n">list02</span><span class="p">):</span>
+    <span class="n">lst03</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst03</span><span class="p">)</span>
+
+<span class="c1"># map関数を使用する例</span>
+<span class="k">def</span> <span class="nf">func01</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span>
+
+<span class="n">list04</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">func01</span><span class="p">,</span> <span class="n">list01</span><span class="p">,</span> <span class="n">list02</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list04</span><span class="p">)</span>
+
+<span class="c1"># map関数とlambda関数を使用する例</span>
+<span class="n">list05</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">list01</span><span class="p">,</span> <span class="n">list02</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list05</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 11, 17, 23, 29]
+[5, 11, 17, 23, 29]
+[5, 11, 17, 23, 29]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">filter()</span></code>関数はリストなどから任意の条件に基づいた値を取り出すときに用いられる関数です。
+使い方は，</p>
+<p><code class="docutils literal notranslate"><span class="pre">filter(function,</span> <span class="pre">iterable)</span></code></p>
+<p>です。<code class="docutils literal notranslate"><span class="pre">filter()</span></code>関数は引数として<code class="docutils literal notranslate"><span class="pre">map()</span></code>関数と同様にfunctionとiterableを持ってます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># リストから奇数を抜き出すプログラム</span>
+<span class="n">lst01</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">26</span><span class="p">]</span>
+<span class="n">lst02</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst01</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span> ==1:
+        <span class="n">lst02</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst02</span><span class="p">)</span>
+
+<span class="c1"># リストから奇数を抜き出すプログラム（lambda式とfilterを用いる）</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span> == 1, lst01)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 7, 11, 19, 23, 25]
+[1, 7, 11, 19, 23, 25]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sorted()</span></code>関数はリストなどを並べ替える関数です．
+使い方は</p>
+<p><code class="docutils literal notranslate"><span class="pre">sorted(iterable</span> <span class="pre">[,</span> <span class="pre">key]</span> <span class="pre">[,</span> <span class="pre">reverse])</span></code></p>
+<p>です．<code class="docutils literal notranslate"><span class="pre">sorted()</span></code>関数は，第1引数としてiterableを指定し，オプションとして第2引数<code class="docutils literal notranslate"><span class="pre">key</span></code>に関数，第3引数に<code class="docutils literal notranslate"><span class="pre">reverse</span></code>として真偽値を指定します．<code class="docutils literal notranslate"><span class="pre">True</span></code>は昇順，<code class="docutils literal notranslate"><span class="pre">False</span></code>は降順となります．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#いくつかの国における，一人当たりGDP（2020）</span>
+<span class="n">lst_gdp</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;Luxembourg&quot;</span><span class="p">,</span> <span class="mi">115536</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Japan&quot;</span><span class="p">,</span> <span class="mi">39304</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;China&quot;</span><span class="p">,</span> <span class="mi">9580</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Brazil&quot;</span><span class="p">,</span> <span class="mi">8959</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="mi">62869</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Korea&quot;</span><span class="p">,</span> <span class="mi">33320</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="mi">42953</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;United Kingdom&quot;</span><span class="p">,</span> <span class="mi">42580</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Sweden&quot;</span><span class="p">,</span> <span class="mi">54356</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Germany&quot;</span><span class="p">,</span> <span class="mi">47662</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Singapore&quot;</span><span class="p">,</span> <span class="mi">64579</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Canada&quot;</span><span class="p">,</span> <span class="mi">46290</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Australia&quot;</span><span class="p">,</span> <span class="mi">56420</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Hong Kong&quot;</span><span class="p">,</span> <span class="mi">48451</span><span class="p">)]</span>
+
+<span class="n">lst_order</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">lst_gdp</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">nation</span> <span class="p">:</span> <span class="n">nation</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst_order</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Luxembourg&#39;, 115536)
+(&#39;Singapore&#39;, 64579)
+(&#39;United States&#39;, 62869)
+(&#39;Australia&#39;, 56420)
+(&#39;Sweden&#39;, 54356)
+(&#39;Hong Kong&#39;, 48451)
+(&#39;Germany&#39;, 47662)
+(&#39;Canada&#39;, 46290)
+(&#39;France&#39;, 42953)
+(&#39;United Kingdom&#39;, 42580)
+(&#39;Japan&#39;, 39304)
+(&#39;Korea&#39;, 33320)
+(&#39;China&#39;, 9580)
+(&#39;Brazil&#39;, 8959)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id25">
+<h3>問題4<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">moji01=[&quot;Math.&quot;,</span> <span class="pre">&quot;Phys.&quot;,</span> <span class="pre">&quot;Stat.&quot;,</span> <span class="pre">&quot;Program.&quot;]</span>&#160; <span class="pre">moji02=[&quot;ematics&quot;,</span> <span class="pre">&quot;ics&quot;,</span> <span class="pre">&quot;istics&quot;,</span> <span class="pre">&quot;ming&quot;]</span> </code></p>
+<p>上記の入力に対して，下記と同じ出力を行うプログラムをmap()、lambda式を用いて作成しなさい.</p>
+<p><code class="docutils literal notranslate"><span class="pre">['Mathematics',</span> <span class="pre">'Physics',</span> <span class="pre">'Statistics',</span> <span class="pre">'Programming']</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># moji01とmoji02をインデックス順に対応する要素を結合するプログラム</span>
+<span class="n">moji01</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Math.&quot;</span><span class="p">,</span> <span class="s2">&quot;Phys.&quot;</span><span class="p">,</span> <span class="s2">&quot;Stat.&quot;</span><span class="p">,</span> <span class="s2">&quot;Program.&quot;</span><span class="p">]</span>
+<span class="n">moji02</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ematics&quot;</span><span class="p">,</span> <span class="s2">&quot;ics&quot;</span><span class="p">,</span> <span class="s2">&quot;istics&quot;</span><span class="p">,</span> <span class="s2">&quot;ming&quot;</span><span class="p">]</span>
+
+<span class="n">moji03</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">moji03</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">moji01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">+</span><span class="n">moji02</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">moji03</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Mathematics&#39;, &#39;Physics&#39;, &#39;Statistics&#39;, &#39;Programming&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id26">
+<h2>5.3 イテレータ<a class="headerlink" href="#id26" title="Link to this heading">#</a></h2>
+<p>リスト、タプル、辞書、文字列、集合は要素を複数持った複合オブジェクトであると同時に，<strong>イテラブル（反復可能iterable）</strong> でもあります．要するに1個ずつ取り出せる構造を持っているわけです．特にループ文の中では，<strong>ある要素の次の要素にアクセスするケースがほとんど</strong>です．このような場合に用いられるオブジェクトが<strong>イテレータ</strong>になります．</p>
+<section id="id27">
+<h3>5.3.1 イテレータの基本<a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p>イテレータとはデータの並びを表現するオブジェクトであり，イテラブルオブジェクトから<code class="docutils literal notranslate"><span class="pre">iter()</span></code>関数によってイテレータを取り出す．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">type</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">num1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list_iterator
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">next()</span></code>関数を用いるとイテレータから1個ずつイテレータの値を取り出すことができる．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> 
+<span class="n">itr1</span><span class="o">=</span><span class="nb">iter</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="c1">#itr1はnum1のイテレータである</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>実は今まで皆さんが何気なく使っていた<code class="docutils literal notranslate"><span class="pre">for</span></code>ループ内で使われる<code class="docutils literal notranslate"><span class="pre">range()</span></code>関数もイテレータを返す関数です(正確にはrange型オブジェクトからイテレータを取り出している)．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">itr2</span><span class="o">=</span><span class="nb">iter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>イテレータが分かると，pythonにおける<code class="docutils literal notranslate"><span class="pre">for</span></code>文の仕組みが理解できます．</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code>文の実行では<code class="docutils literal notranslate"><span class="pre">in</span></code>と<code class="docutils literal notranslate"><span class="pre">:</span></code>の間に置かれた式がイテラブルオブジェクトであるか否か，繰り返しを始める直前に1回だけ評価される．</p></li>
+<li><p>イテラブルオブジェクト（リストやrange型など）から，<code class="docutils literal notranslate"><span class="pre">iter</span></code>関数によってイテレータを取り出す．（裏で実行されてる）</p></li>
+<li><p>イテレータから，次の要素を<code class="docutils literal notranslate"><span class="pre">next</span></code>関数によって1個取り出す．（裏で実行されてる）</p></li>
+<li><p>ループ本体が実行される．</p></li>
+<li><p>全ての要素を取り出し終わったら<code class="docutils literal notranslate"><span class="pre">for</span></code>の終了</p></li>
+</ol>
+</section>
+<section id="id28">
+<h3>5.3.1 イテレータの例<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read()メソッドでアイル全体を読み込む</span>
+
+<span class="n">file01</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prog11_02data.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="c1">#ファイルオブジェクトを作成</span>
+<span class="n">body</span><span class="o">=</span><span class="n">file01</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1">#ファイル全体を読み込む</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="c1">#ファイルを改行で分割</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[:</span><span class="mi">7</span><span class="p">]))</span><span class="c1">#先頭の7行を表示</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pythonプログラミングを用い自由になろう！
+
+Web上で、
+データ解析で、
+シミュレーションで、
+
+自分の思うがままにプログラミング。
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#readline()メソッドで1行ずつファイルを読み込む</span>
+
+<span class="n">file02</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prog11_02data.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="c1">#ファイルオブジェクトを作成</span>
+<span class="n">lines</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="c1">#表示する文字列の初期化</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span> <span class="c1">#</span>
+    <span class="n">lines</span> <span class="o">+=</span> <span class="n">file02</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span> <span class="c1">#1行ずつ読み込む</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pythonプログラミングを用い自由になろう！
+
+Web上で、
+データ解析で、
+シミュレーションで、
+
+自分の思うがままにプログラミング。
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#イテレータ（enumerate()）を用いてファイルを読みこむ</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prog11_02data.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)):</span> <span class="c1">#ファイルオブジェクトがイテレータとして機能する性質を使って，ループ変数そのものに1行ずつデータを読み込ませる</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="c1">#読み込んだデータを表示し（行末に空を割り当て）改行なしにする</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">7</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pythonプログラミングを用い自由になろう！
+
+Web上で、
+データ解析で、
+シミュレーションで、
+
+自分の思うがままにプログラミング。
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id29">
+<h3>5.3.2 ジェネレータ<a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<p>普通の関数を自分で定義できたように，Pythonではイテレータを自分で定義することができます．このようにイテレータを自分定義する仕組みを<strong>ジェネレータ</strong>と呼び，定義された関数内では<code class="docutils literal notranslate"><span class="pre">return</span></code>文の代わりに<code class="docutils literal notranslate"><span class="pre">yield</span></code>文が使われます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># yieldで値を返す関数</span>
+<span class="k">def</span> <span class="nf">gen1</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="mi">1</span>
+    <span class="k">yield</span> <span class="mi">2</span>
+    <span class="k">yield</span> <span class="mi">3</span>
+
+<span class="n">itr1</span><span class="o">=</span><span class="n">gen1</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">itr1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">yield</span></code>文を使うと<strong>関数内の状態をすべて保存します</strong>．そして，もう一度その関数が呼ばれるときには先ほどのyieldで値を返した直後から処理を継続実行します（<strong>関数の先頭から実行されません</strong>）．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#素数を返すジェネレータ関数の定義</span>
+<span class="k">def</span> <span class="nf">get_primes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">i</span> ==0:
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span> <span class="n">get_primes</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c=0
+2
+c=1
+3
+c=2
+5
+c=3
+7
+c=4
+11
+c=5
+13
+c=6
+17
+c=7
+19
+c=8
+23
+c=9
+29
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id30">
+<h3>レポート問題<a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<p>今日やった全ての問題(4つ)を一つのスクリプトファイル（jupyter notebook形式）にまとめなさい</p>
+<p><strong>〆切：10/08（日）18:00までに学習支援システムでjupyter notebook形式「id_学籍番号_02v2.ipynb」形式で送ること</strong></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lecture_ipynbs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3 関数</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1 関数の作り方</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">問題3.1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2 モジュールを作る</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.3 名前空間とスコープ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題3.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.4 再帰</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">問題3.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">レポート課題2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">4 エラーのデバッグと例外処理</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">4.1 エラーの種類</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">4.1.1 構文上のエラー</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">4.1.2 実行時のエラー</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">4.1 3 意味上のエラー</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">4.2 例外と例外処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror">4.2.1 <code class="docutils literal notranslate"><span class="pre">NameError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valueerror">4.2.2 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror">4.2.3 IndexError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zerodivisionerror">4.2.4 <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror">4.2.5 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filenotfounderror">4.2.6 <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">問題1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.3 例外処理</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">5 その他これまでに説明しなかった高度な知識</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">5.1内包表記</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">5.1.1 リスト内包表記</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">問題2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5.1.2 辞書内包表記</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">5.1.3 集合内包表記</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">問題3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">5.2 lambda式</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">問題4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">5.3 イテレータ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">5.3.1 イテレータの基本</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">5.3.1 イテレータの例</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">5.3.2 ジェネレータ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">レポート問題</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Masashi Shiraishi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
