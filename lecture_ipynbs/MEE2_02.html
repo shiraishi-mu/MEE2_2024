@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -348,58 +348,59 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.1.2 関数の戻り値</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題3.1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#return">3.1.3 return文</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.1.4 複数の戻り値の受取方</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.2 モジュールを作る</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3.3 名前空間とスコープ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">問題3.3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">3.4 再帰</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">問題3.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3.2 モジュールを作る</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">3.3 名前空間とスコープ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">問題3.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">3.4 再帰</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">問題3.4</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">レポート課題</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">4 エラーのデバッグと例外処理</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">4.1 エラーの種類</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">4.1.1 構文上のエラー</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.1.2 実行時のエラー</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.1 3 意味上のエラー</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">レポート課題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">4 エラーのデバッグと例外処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">4.1 エラーの種類</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.1.1 構文上のエラー</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.1.2 実行時のエラー</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.1 3 意味上のエラー</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.2 例外と例外処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">4.2 例外と例外処理</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror">4.2.1 <code class="docutils literal notranslate"><span class="pre">NameError</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valueerror">4.2.2 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror">4.2.3 IndexError</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zerodivisionerror">4.2.4 <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror">4.2.5 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filenotfounderror">4.2.6 <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">問題4.2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">問題4.2</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">4.3 例外処理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">4.3 例外処理</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">5 その他これまでに説明しなかった高度な知識</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5.1内包表記</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">5.1.1 リスト内包表記</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">問題5.1</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">5.1.2 辞書内包表記</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">5.1.3 集合内包表記</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">問題5.1.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5 その他これまでに説明しなかった高度な知識</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">5.1内包表記</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">5.1.1 リスト内包表記</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">問題5.1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">5.1.2 辞書内包表記</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">5.1.3 集合内包表記</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">問題5.1.3</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">5.2 lambda式</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">問題5.2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">問題5.2</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">5.3 イテレータ</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">5.3.1 イテレータの基本</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">5.3.1 イテレータの例</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">5.3.2 ジェネレータ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">5.3 イテレータ</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">5.3.1 イテレータの基本</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">5.3.1 イテレータの例</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">5.3.2 ジェネレータ</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">レポート問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">レポート問題</a></li>
 </ul>
             </nav>
         </div>
@@ -463,12 +464,12 @@ prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">triarea2</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 底辺・高さの大きさ（データ）を実引数として関数へ渡した上で関数の実行</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">triarea2</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span> <span class="c1"># 底辺・高さの大きさ（データ）を実引数として関数へ渡した上で関数の実行</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>三角形の面積： 5.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>三角形の面積： 0.1
 </pre></div>
 </div>
 </div>
@@ -523,12 +524,13 @@ prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積
     <span class="n">area</span><span class="o">=</span><span class="n">edge</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">edge</span><span class="o">/</span><span class="mi">2</span>
     <span class="k">return</span> <span class="n">area</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;三角形の面積</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">eqtri</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">edge</span> <span class="o">=</span> <span class="mf">2.3</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;一辺の長さが</span><span class="si">{</span><span class="n">edge</span><span class="si">}</span><span class="s1">の三角形の面積</span><span class="si">{</span><span class="n">eqtri</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>三角形の面積1.7320508075688772
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>一辺の長さが2.3の三角形の面積2.29063719300984
 </pre></div>
 </div>
 </div>
@@ -578,7 +580,8 @@ prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積
 <span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n1:&#39;</span><span class="p">))</span>
 <span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n2:&#39;</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最小値は</span><span class="si">{}</span><span class="s1">です。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値は</span><span class="si">{</span><span class="n">min1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値は</span><span class="si">{</span><span class="n">min2</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値は</span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">)</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -591,7 +594,7 @@ prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積
 <span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">return</span> <span class="n">b</span>
 <span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n1:&#39;</span><span class="p">))</span>
 <span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n2:&#39;</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最小値は</span><span class="si">{}</span><span class="s1">です。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)))</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値は</span><span class="si">{</span><span class="n">min1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
 
 <span class="nn">File ~/Dropbox/2024数理工学実験２/2024Shiraishi/.venv/lib/python3.12/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
@@ -628,7 +631,7 @@ prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積
 <span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n1:&#39;</span><span class="p">))</span>
 <span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n2:&#39;</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最小値、最大値の組は</span><span class="si">{}</span><span class="s1">です。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_max1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値、最大値の組は</span><span class="si">{</span><span class="n">min_max1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">min_max2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;aとbの大きい方と小さいほうを両方とも返す関数(1行で返す)。条件演算子x if y else zを使った&quot;&quot;&quot;</span>    
@@ -637,16 +640,68 @@ prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積
 <span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n1:&#39;</span><span class="p">))</span>
 <span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n2:&#39;</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最小値、最大値の組は</span><span class="si">{}</span><span class="s1">です。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_max2</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値、最大値の組は</span><span class="si">{</span><span class="n">min_max2</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>最小値、最大値の組は(2, 3)です。
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>最小値、最大値の組は(3, 5)です。
+最小値、最大値の組は(3, 5)です。
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h4>3.1.4 複数の戻り値の受取方<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2値の最小値と最大値を求める</span>
+
+<span class="k">def</span> <span class="nf">min_max1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;aとbの大きい方と小さいほうを両方とも返す関数&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
+        <span class="nb">min</span><span class="o">=</span><span class="n">a</span>
+        <span class="nb">max</span><span class="o">=</span><span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">min</span><span class="o">=</span><span class="n">b</span>
+        <span class="nb">max</span><span class="o">=</span><span class="n">a</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">)</span>
+
+<span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n1:&#39;</span><span class="p">))</span>
+<span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;整数n2:&#39;</span><span class="p">))</span>
+
+<span class="n">minmax</span> <span class="o">=</span> <span class="n">min_max1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span>
+<span class="n">minv</span><span class="p">,</span> <span class="n">maxv</span> <span class="o">=</span> <span class="n">min_max1</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値、最大値の組は</span><span class="si">{</span><span class="n">minmax</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最小値</span><span class="si">{</span><span class="n">minv</span><span class="si">}</span><span class="s1">、最大値は</span><span class="si">{</span><span class="n">maxv</span><span class="si">}</span><span class="s1">です。&#39;</span><span class="p">)</span>
+
+<span class="c1"># def min_max2(a,b):</span>
+<span class="c1">#     &quot;&quot;&quot;aとbの大きい方と小さいほうを両方とも返す関数(1行で返す)。条件演算子x if y else zを使った&quot;&quot;&quot;    </span>
+<span class="c1">#     return (a, b) if a&lt;b else (b, a)</span>
+
+<span class="c1"># n1=int(input(&#39;整数n1:&#39;))</span>
+<span class="c1"># n2=int(input(&#39;整数n2:&#39;))</span>
+
+<span class="c1"># print(f&#39;最小値、最大値の組は{min_max2(n1, n2)}です。&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>最小値、最大値の組は(1, 3)です。
+最小値1、最大値は3です。
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="id7">
-<h3>3.2 モジュールを作る<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>3.2 モジュールを作る<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>Pythonには組み込み関数以外にも特定の用途に応じて関数やメソッドがまとめられており，それらを<strong>モジュール</strong>と呼びます．</p>
 <p>モジュールの使い方は「情報処理」の講義でやりましたがちょっと復習してみます（<a class="reference external" href="http://kino.sub.jp/IT2015_old/IT_06.html">モジュールのインポートと使い方</a>）．</p>
 <p>例えば，「<code class="docutils literal notranslate"><span class="pre">random</span></code>モジュール（乱数モジュール）」の中にある「0以上1以下のランダムな浮動小数点」を発生する<code class="docutils literal notranslate"><span class="pre">random()</span></code>関数は下記のようにして呼び出します．</p>
@@ -659,7 +714,7 @@ prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05014640336153997
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6524844687268032
 </pre></div>
 </div>
 </div>
@@ -746,8 +801,8 @@ prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積
 <p>2進数の浮動小数点演算をサポートするすべての言語で同じ種類の問題を抱えています．</p>
 <p>要するに，<code class="docutils literal notranslate"><span class="pre">0.1</span></code>を2進数で正確に表現することは出来ないのです．このことについては後で詳しく説明します．</p>
 </section>
-<section id="id8">
-<h3>3.3 名前空間とスコープ<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>3.3 名前空間とスコープ<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>関数を用いモジュールとしてまとめるとプログラミングを便利に楽に作成できるようになります．</p>
 <p>ここでは，プログラム内で関数を使う際に注意が必要なものが<strong>名前空間</strong>と<strong>スコープ</strong>という概念です．</p>
 <p>名前空間とは変数などのオブジェクト（pythonの場合関数やメソッドなど全てがオブジェクト）が所属する場所のことです．</p>
@@ -794,8 +849,8 @@ prog08_01.pyは「底辺=10」「高さ=5」と限定された三角形の面積
 <p><strong>この関数の中にあるaと関数の外にあるaは全く関係ありません</strong>．</p>
 <p>したがって，func1()を呼び出したときにはfunc1()内で定義されたa=3が出力され，関数の外ではa=1が出力されることになります．</p>
 </section>
-<section id="id9">
-<h3>問題3.3<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>問題3.3<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>以下のプログラムがどのような出力を示すか，予想してください．その後プログラムを実行し結果を確認してください．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -824,8 +879,8 @@ y= 2
 </div>
 </div>
 </section>
-<section id="id10">
-<h3>3.4 再帰<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h3>3.4 再帰<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <p>関数を使って有名でちょっとテクニカルな<strong>再帰</strong>というアルゴリズムを紹介します．</p>
 <p>初めに階乗の計算を行う関数として「繰り返し」を用いた場合と「再帰」を用いた場合で比較します．</p>
 <p><span class="math notranslate nohighlight">\(5!=120\)</span></p>
@@ -845,12 +900,12 @@ y= 2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factI</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factI</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>720
 </pre></div>
 </div>
 </div>
@@ -894,13 +949,103 @@ y= 2
 <li><p><span class="math notranslate nohighlight">\(a_{n}=a_{n-1}+a_{n-2}\)</span>（再帰的に定義する部分）</p></li>
 </ul>
 </section>
-<section id="id11">
-<h3>問題3.4<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<p>上記の定義を参考にフィボナッチ数列を作成する関数を作成しなさい．ただし，項の数を関数の引数として渡すこと．</p>
-</section>
-</section>
 <section id="id12">
-<h2>レポート課題<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<h3>問題3.4<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>上記の定義を参考にフィボナッチ数列を作成する関数を作成しなさい．ただし，項の数を関数の引数として渡すこと．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">fibo</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_0 = 1
+a_1 = 1
+a_2 = 2
+a_3 = 3
+a_4 = 5
+a_5 = 8
+a_6 = 13
+a_7 = 21
+a_8 = 34
+a_9 = 55
+a_10 = 89
+a_11 = 144
+a_12 = 233
+a_13 = 377
+a_14 = 610
+a_15 = 987
+a_16 = 1597
+a_17 = 2584
+a_18 = 4181
+a_19 = 6765
+a_20 = 10946
+a_21 = 17711
+a_22 = 28657
+a_23 = 46368
+a_24 = 75025
+a_25 = 121393
+a_26 = 196418
+a_27 = 317811
+a_28 = 514229
+a_29 = 832040
+a_30 = 1346269
+a_31 = 2178309
+a_32 = 3524578
+a_33 = 5702887
+a_34 = 9227465
+a_35 = 14930352
+a_36 = 24157817
+a_37 = 39088169
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">58</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="k">return</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">10</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">fibo</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nn">Cell In[58], line 7,</span> in <span class="ni">fibo</span><span class="nt">(n)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">return</span> <span class="mi">1</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nn">Cell In[58], line 7,</span> in <span class="ni">fibo</span><span class="nt">(n)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">return</span> <span class="mi">1</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">similar</span> <span class="n">frames</span><span class="p">:</span> <span class="n">fibo</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">7</span> <span class="p">(</span><span class="mi">23</span> <span class="n">times</span><span class="p">)]</span>
+
+<span class="nn">Cell In[58], line 7,</span> in <span class="ni">fibo</span><span class="nt">(n)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">return</span> <span class="mi">1</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nn">Cell In[58], line 1,</span> in <span class="ni">fibo</span><span class="nt">(n)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="k">return</span> <span class="mi">1</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id13">
+<h2>レポート課題<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <p>再帰を用いて「最大公約数」「最小公倍数」を計算する関数を含むモジュールを作成しなさい．
 （ただし，mathライブラリに用意されている最大公約数の関数<code class="docutils literal notranslate"><span class="pre">math.gcd()</span></code>を使わない事）．</p>
 <p>モジュールのpythonファイルは「id_学籍番号_02v1.py」として下さい．
@@ -926,8 +1071,8 @@ y= 2
 </div>
 </div>
 </section>
-<section id="id13">
-<h2>4 エラーのデバッグと例外処理<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<section id="id14">
+<h2>4 エラーのデバッグと例外処理<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <p>これまで「情報処理」「数理工学実験2」とPythonを学んできて様々なエラーが現れそれに対処してきたと思います．
 ここではエラーの種類や作成したプログラムのテストまたデバッグや例外処理と言ったことを学んでいきます．
 ここではある程度系統立ててエラーとそのデバック方法について学びますがプログラムのデバッグは系統立ててできるとは限りません．
@@ -935,12 +1080,12 @@ y= 2
 さて，以下エラーについて学ぶ前にデバッグ方法の答えを言うならば<strong>とにかく問題がありそうな箇所の直前と直後で<code class="docutils literal notranslate"><span class="pre">print()</span></code>関数を用いて変数を出力してみよ</strong>という事に尽きます．
 プログラムエラーのデバッグ作業のしんどさは常に付きまとうものでデバッガと呼ばれるデバッグツールがいくつも存在していますが，
 どんな言語であっても率直に言って上記の<code class="docutils literal notranslate"><span class="pre">print()</span></code>関数を使う方法以上にスピードをもってデバッグする方法はありません（少なくとも僕は知らない）．（主に「ThinkPython」和訳を参考にしてます）</p>
-<section id="id14">
-<h3>4.1 エラーの種類<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h3>4.1 エラーの種類<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <p>大きく分けてエラーの種類は3種類あります．1つ目は<strong>構文上のエラー</strong>，2つ目は<strong>実行中のエラー</strong>，3つ目は<strong>意味上のエラー</strong>です．</p>
 <p>構文上のエラーと実行中のエラーはPythonが何らかのメッセージをTracebackしてくれるのに対して，意味上のエラーはメッセージが表示されずプログラムが実行されるので自分でエラーを探す必要があります．</p>
-<section id="id15">
-<h4>4.1.1 構文上のエラー<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
+<section id="id16">
+<h4>4.1.1 構文上のエラー<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
 <p>構文上のエラーとは関数やクラスを定義<code class="docutils literal notranslate"><span class="pre">def</span></code>した後にコロン<code class="docutils literal notranslate"><span class="pre">:</span></code>を入れてなかったり，<code class="docutils literal notranslate"><span class="pre">{</span></code>を閉じてなかったりするケースです．また，インデントが正しく行われてる場合もこのエラーに含まれます．構文上のエラーを<code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>と呼び，インデントのエラー<code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>と呼びます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -949,7 +1094,7 @@ y= 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">59</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello !)</span>
           <span class="o">^</span>
 <span class="ne">SyntaxError</span>: unterminated string literal (detected at line 1)
@@ -961,15 +1106,16 @@ y= 2
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: expected an indented block after &#39;for&#39; statement on line 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
 </pre></div>
 </div>
 </div>
@@ -977,8 +1123,8 @@ y= 2
 <p>上記はインデントを行わなかったため<code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>が出力されています．</p>
 <p>これらのようにエラーメッセージは必ずしも有用とは限りませんが，エラーが起こった場所について教えてくれることがあります．ただし，常にエラーの場所を示しているとは限らずエラーのある場所より前の場所を示していることもあるので注意してデバッグしましょう．</p>
 </section>
-<section id="id16">
-<h4>4.1.2 実行時のエラー<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
+<section id="id17">
+<h4>4.1.2 実行時のエラー<a class="headerlink" href="#id17" title="Link to this heading">#</a></h4>
 <p>構文上のエラーが無くとも実行時にエラーが出ることもあります．ここではそれらのエラーについて考えてみます．</p>
 <ol class="arabic">
 <li><p>全く反応しない場合</p>
@@ -1011,9 +1157,42 @@ y= 2
 </ul>
 </li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=-</span><span class="mi">10</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">5</span>
+<span class="k">while</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="n">x</span><span class="o">-=</span><span class="mi">1</span>
+    <span class="n">y</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;条件:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=-9
+y=4
+条件:True
+x=-8
+y=3
+条件:True
+x=-7
+y=2
+条件:True
+x=-6
+y=1
+条件:True
+x=-5
+y=0
+条件:False
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="id17">
-<h4>4.1 3 意味上のエラー<a class="headerlink" href="#id17" title="Link to this heading">#</a></h4>
+<section id="id18">
+<h4>4.1 3 意味上のエラー<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
 <p>上記2つのエラー（「構文上のエラー」「実行上のエラー」）はPython側で何らかのエラー情報を出力してくれるという意味で容易なエラーです．それらと比較し「意味上のエラー」というのは厄介です．なぜなら、<strong>そのプログラムが処理すべきことを知っているのはプログラム作成者（あなた）だけ</strong>であり，当然そのプログラムがエラーである理由もあなたしか分からないからです．さて，このような場合も基本的なデバッグ作業はこれまでと同じです．基本は怪しそうなコードの直前と直後で<code class="docutils literal notranslate"><span class="pre">Print()</span></code>関数を用い変数を表示させるという方法です．
 以下ではそれ以外にエラーを見つけデバッグするためにチェックすべき点を上げます．</p>
 <ol class="arabic">
@@ -1047,8 +1226,8 @@ y= 2
 </ol>
 </section>
 </section>
-<section id="id18">
-<h3>4.2 例外と例外処理<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h3>4.2 例外と例外処理<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
 <p>Pythonでは「実行時のエラー」の多くは例外として扱われます．例外が発生し，プログラムの実行が停止されるとトレースバック（Traceback:追跡結果）が表示されます．トレースバックにはエラー原因の情報が記述されているので読む癖をつけましょう．<strong>特に，トレースバックの最後の行を読むことが重要です</strong>．
 例外はその種類に応じて幾つかに分類されます．その一部を紹介します．（全ての例外については<a class="reference external" href="http://docs.python.jp/3/library/exceptions.html">ここ</a>で紹介されてます）</p>
 <section id="nameerror">
@@ -1056,12 +1235,13 @@ y= 2
 <p><code class="docutils literal notranslate"><span class="pre">NameError</span></code>は未定義のオブジェクトを参照しようとした場合に発生する例外です．Pythonでは変数、関数、モジュールもすべてオブジェクトなので，未定義の変数、関数、モジュールを呼び出す際に発生します。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ab</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
 </pre></div>
 </div>
 </div>
@@ -1079,7 +1259,7 @@ y= 2
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">70</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">C</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: could not convert string to float: &#39;test&#39;
@@ -1184,13 +1364,30 @@ y= 2
 </div>
 <p>これまで，Pythonではすべてがオブジェクトであると言いました．例外もオブジェクトであり，<strong><code class="docutils literal notranslate"><span class="pre">BaseException</span></code>クラス</strong>のオブジェクト（インスタンス）です．</p>
 </section>
-<section id="id19">
-<h4>問題4.2<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
-<p><a class="reference external" href="http://docs.python.jp/3/library/exceptions.html">ここ</a>を読んで，上で上げたもの以外の例外を3つ試してみなさい．</p>
-</section>
-</section>
 <section id="id20">
-<h3>4.3 例外処理<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<h4>問題4.2<a class="headerlink" href="#id20" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="http://docs.python.jp/3/library/exceptions.html">ここ</a>を読んで，上で上げたもの以外の例外を3つ試してみなさい．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">djajfoal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">71</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">djajfoal</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;djajfoal&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id21">
+<h3>4.3 例外処理<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
 <p>上記の例外がプログラム実行中に現れた場合にその例外の種類に応じてプログラムを終了したり，中断したり実行状況を変えたい場合があります．そのような場合に用いる文が<code class="docutils literal notranslate"><span class="pre">try:</span> <span class="pre">～</span> <span class="pre">except:</span></code>文です．最も簡単な例を見てみましょう．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1275,17 +1472,17 @@ Web上で、
 <p>エラーとそのデバッグ作業はプログラミングの中で最も労力が掛かりますが，デバッグ作業抜きのプログラムはあり得ません．地道にエラーに対処しましょう．</p>
 </section>
 </section>
-<section id="id21">
-<h2>5 その他これまでに説明しなかった高度な知識<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
-<p>これまでの知識で基本的なPythonの知識は概ねOKです．最後にこれまで説明しなかった少し高度なPythonの知識について，いくつか説明します．このような高度な知識は，たとえ自分が使わなくとも他人のプログラムを読むときに必要となるのです．（ここで扱ってる内容はすべて「<strong>関数型プログラミング</strong>」に関わる内容です。「関数型プログラミング」は「オブジェクト指向プログラミング」と対照的なプログラミング手法です。オブジェクト指向プログラミングはオブジェクト中心のプログラム手法であるのに対し、関数型プログラミングはすべてを関数として扱うプログラミング手法です。Pythonは手続型プログラミング、オブジェクト型プログラミング、関数型プログラミングのどの手法でも書くことができます。）</p>
 <section id="id22">
-<h3>5.1内包表記<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<h2>5 その他これまでに説明しなかった高度な知識<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
+<p>これまでの知識で基本的なPythonの知識は概ねOKです．最後にこれまで説明しなかった少し高度なPythonの知識について，いくつか説明します．このような高度な知識は，たとえ自分が使わなくとも他人のプログラムを読むときに必要となるのです．（ここで扱ってる内容はすべて「<strong>関数型プログラミング</strong>」に関わる内容です。「関数型プログラミング」は「オブジェクト指向プログラミング」と対照的なプログラミング手法です。オブジェクト指向プログラミングはオブジェクト中心のプログラム手法であるのに対し、関数型プログラミングはすべてを関数として扱うプログラミング手法です。Pythonは手続型プログラミング、オブジェクト型プログラミング、関数型プログラミングのどの手法でも書くことができます。）</p>
+<section id="id23">
+<h3>5.1内包表記<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
 <p><strong>内包表記</strong>はPythonでは比較的新しい機能です．<code class="docutils literal notranslate"><span class="pre">for</span></code>，<code class="docutils literal notranslate"><span class="pre">while</span></code>といった繰り返し処理を用い連続的なリストや辞書を生成できますが，Pythonでは通常使われません．その効率的な手法（簡潔な上に生成速度が速い）が内包表記です．内包表記は分かりづらい面もありますので，自分がプログラムを作成する上では必ずしも使う必要はありません．ただし，他の人のプログラムを読む際に必要となるケースがありますので，知識としては知っておきましょう（内包表記できる型はリスト，辞書，集合です．タプルは内包表記できません）．</p>
 <p>内包表記の基本的な書き方は</p>
 <p><code class="docutils literal notranslate"><span class="pre">式</span> <span class="pre">for</span> <span class="pre">繰り返し変数</span> <span class="pre">in</span> <span class="pre">シーケンス</span></code></p>
 <p>になります．</p>
-<section id="id23">
-<h4>5.1.1 リスト内包表記<a class="headerlink" href="#id23" title="Link to this heading">#</a></h4>
+<section id="id24">
+<h4>5.1.1 リスト内包表記<a class="headerlink" href="#id24" title="Link to this heading">#</a></h4>
 <p>リストを内包表記により作成する場合に<strong>リスト内包表記</strong>が用いられます．言葉で説明するより「通常の書き方」と「リスト内包表記」を比較した方が分かり易いので下記の具体的な例を見て下さい．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1352,13 +1549,13 @@ Web上で、
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
 <span class="n">lst01</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
     <span class="n">lst01</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>357 μs ± 2.71 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.42 ms ± 13.6 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -1366,21 +1563,39 @@ Web上で、
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
-<span class="n">lst02</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+<span class="n">lst02</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>337 μs ± 4.49 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.03 ms ± 6.49 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
 </div>
 <p>上記のように1.25倍ほどスピードが上がってます．上の例は単純で小さいプログラムなのでさほど意義は感じられませんが，大規模プログラムではこの差は大きいものとなります.</p>
 </section>
-<section id="id24">
-<h4>問題5.1<a class="headerlink" href="#id24" title="Link to this heading">#</a></h4>
+<section id="id25">
+<h4>問題5.1<a class="headerlink" href="#id25" title="Link to this heading">#</a></h4>
 <p>以下の複数の<code class="docutils literal notranslate"><span class="pre">for</span></code>文を記述したリスト内包表記とその結果を見て，同じ結果を出力するプログラムをリスト内包表記を用いず<code class="docutils literal notranslate"><span class="pre">for</span></code>文を用いて作りなさい．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+3
+5
+10
+4
+100
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst05</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]]</span>
@@ -1412,8 +1627,8 @@ Web上で、
 </div>
 </div>
 </section>
-<section id="id25">
-<h4>5.1.2 辞書内包表記<a class="headerlink" href="#id25" title="Link to this heading">#</a></h4>
+<section id="id26">
+<h4>5.1.2 辞書内包表記<a class="headerlink" href="#id26" title="Link to this heading">#</a></h4>
 <p>リスト同様に辞書も内包表記を用いて作成することが出来ます．リスト内包表記と異なる点は辞書には「キー」と「値」がある点です．辞書を作成する前に，そこで使用する<code class="docutils literal notranslate"><span class="pre">zip()</span></code>関数について説明します．<code class="docutils literal notranslate"><span class="pre">zip()</span></code>関数はデータ数が同じ2つのシーケンス型を引数として渡し，2つのシーケンスからデータを順番に引き渡します．<code class="docutils literal notranslate"><span class="pre">zip</span></code>関数の動作は下記のとおりです．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1470,8 +1685,8 @@ e 5
 </div>
 </div>
 </section>
-<section id="id26">
-<h4>5.1.3 集合内包表記<a class="headerlink" href="#id26" title="Link to this heading">#</a></h4>
+<section id="id27">
+<h4>5.1.3 集合内包表記<a class="headerlink" href="#id27" title="Link to this heading">#</a></h4>
 <p>リスト，辞書と同様に集合(set)でも内包表記できます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1489,11 +1704,28 @@ e 5
 </div>
 </div>
 </section>
-<section id="id27">
-<h4>問題5.1.3<a class="headerlink" href="#id27" title="Link to this heading">#</a></h4>
+<section id="id28">
+<h4>問題5.1.3<a class="headerlink" href="#id28" title="Link to this heading">#</a></h4>
 <p>集合内包表記を用いて次の名前のリストを文字列を小文字に変換しながらset型に変換して、重複する要素を取り除きなさい．</p>
 <p><code class="docutils literal notranslate"><span class="pre">names=[&quot;BOB&quot;,</span> <span class="pre">&quot;burton&quot;,</span> <span class="pre">&quot;dave&quot;,</span> <span class="pre">&quot;bob&quot;]</span></code></p>
 <p>ヒント、str型を小文字に変換するメソッドは<code class="docutils literal notranslate"><span class="pre">lower()</span></code>です．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;BOB&quot;</span><span class="p">,</span> <span class="s2">&quot;burton&quot;</span><span class="p">,</span> <span class="s2">&quot;dave&quot;</span><span class="p">,</span> <span class="s2">&quot;bob&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bob
+burton
+dave
+bob
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#解答3</span>
@@ -1633,8 +1865,8 @@ lambda式の定義は次の通りです．</p>
 </div>
 </div>
 </div>
-<section id="id28">
-<h4>問題5.2<a class="headerlink" href="#id28" title="Link to this heading">#</a></h4>
+<section id="id29">
+<h4>問題5.2<a class="headerlink" href="#id29" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">moji01=[&quot;Math.&quot;,</span> <span class="pre">&quot;Phys.&quot;,</span> <span class="pre">&quot;Stat.&quot;,</span> <span class="pre">&quot;Program.&quot;]</span>&#160; <span class="pre">moji02=[&quot;ematics&quot;,</span> <span class="pre">&quot;ics&quot;,</span> <span class="pre">&quot;istics&quot;,</span> <span class="pre">&quot;ming&quot;]</span> </code></p>
 <p>上記の入力に対して，下記と同じ出力を行うプログラムをmap()、lambda式を用いて作成しなさい.</p>
 <p><code class="docutils literal notranslate"><span class="pre">['Mathematics',</span> <span class="pre">'Physics',</span> <span class="pre">'Statistics',</span> <span class="pre">'Programming']</span></code></p>
@@ -1677,11 +1909,11 @@ lambda式の定義は次の通りです．</p>
 </div>
 </section>
 </section>
-<section id="id29">
-<h3>5.3 イテレータ<a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
-<p>リスト、タプル、辞書、文字列、集合は要素を複数持った複合オブジェクトであると同時に，<strong>イテラブル（反復可能iterable）</strong> でもあります．要するに1個ずつ取り出せる構造を持っているわけです．特にループ文の中では，<strong>ある要素の次の要素にアクセスするケースがほとんど</strong>です．このような場合に用いられるオブジェクトが<strong>イテレータ</strong>になります．</p>
 <section id="id30">
-<h4>5.3.1 イテレータの基本<a class="headerlink" href="#id30" title="Link to this heading">#</a></h4>
+<h3>5.3 イテレータ<a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<p>リスト、タプル、辞書、文字列、集合は要素を複数持った複合オブジェクトであると同時に，<strong>イテラブル（反復可能iterable）</strong> でもあります．要するに1個ずつ取り出せる構造を持っているわけです．特にループ文の中では，<strong>ある要素の次の要素にアクセスするケースがほとんど</strong>です．このような場合に用いられるオブジェクトが<strong>イテレータ</strong>になります．</p>
+<section id="id31">
+<h4>5.3.1 イテレータの基本<a class="headerlink" href="#id31" title="Link to this heading">#</a></h4>
 <p>イテレータとはデータの並びを表現するオブジェクトであり，イテラブルオブジェクトから<code class="docutils literal notranslate"><span class="pre">iter()</span></code>関数によってイテレータを取り出す．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1750,8 +1982,8 @@ lambda式の定義は次の通りです．</p>
 <li><p>全ての要素を取り出し終わったら<code class="docutils literal notranslate"><span class="pre">for</span></code>の終了</p></li>
 </ol>
 </section>
-<section id="id31">
-<h4>5.3.1 イテレータの例<a class="headerlink" href="#id31" title="Link to this heading">#</a></h4>
+<section id="id32">
+<h4>5.3.1 イテレータの例<a class="headerlink" href="#id32" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read()メソッドでアイル全体を読み込む</span>
@@ -1822,8 +2054,8 @@ Web上で、
 </div>
 </div>
 </section>
-<section id="id32">
-<h4>5.3.2 ジェネレータ<a class="headerlink" href="#id32" title="Link to this heading">#</a></h4>
+<section id="id33">
+<h4>5.3.2 ジェネレータ<a class="headerlink" href="#id33" title="Link to this heading">#</a></h4>
 <p>普通の関数を自分で定義できたように，Pythonではイテレータを自分で定義することができます．このようにイテレータを自分定義する仕組みを<strong>ジェネレータ</strong>と呼び，定義された関数内では<code class="docutils literal notranslate"><span class="pre">return</span></code>文の代わりに<code class="docutils literal notranslate"><span class="pre">yield</span></code>文が使われます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1900,8 +2132,8 @@ c=9
 </section>
 </section>
 </section>
-<section id="id33">
-<h2>レポート問題<a class="headerlink" href="#id33" title="Link to this heading">#</a></h2>
+<section id="id34">
+<h2>レポート問題<a class="headerlink" href="#id34" title="Link to this heading">#</a></h2>
 <p>今日やった全ての問題(4つ)を一つのノートブック（jupyter notebook形式）にまとめなさい</p>
 <p><strong>〆切：10/09（水）18:00までに学習支援システムでjupyter notebook形式「id_学籍番号_02v2.ipynb」形式で送ること</strong></p>
 </section>
@@ -1959,58 +2191,59 @@ c=9
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.1.2 関数の戻り値</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題3.1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#return">3.1.3 return文</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.1.4 複数の戻り値の受取方</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.2 モジュールを作る</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3.3 名前空間とスコープ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">問題3.3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">3.4 再帰</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">問題3.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3.2 モジュールを作る</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">3.3 名前空間とスコープ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">問題3.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">3.4 再帰</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">問題3.4</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">レポート課題</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">4 エラーのデバッグと例外処理</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">4.1 エラーの種類</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">4.1.1 構文上のエラー</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.1.2 実行時のエラー</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.1 3 意味上のエラー</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">レポート課題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">4 エラーのデバッグと例外処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">4.1 エラーの種類</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.1.1 構文上のエラー</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.1.2 実行時のエラー</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.1 3 意味上のエラー</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.2 例外と例外処理</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">4.2 例外と例外処理</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror">4.2.1 <code class="docutils literal notranslate"><span class="pre">NameError</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valueerror">4.2.2 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror">4.2.3 IndexError</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zerodivisionerror">4.2.4 <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror">4.2.5 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filenotfounderror">4.2.6 <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">問題4.2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">問題4.2</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">4.3 例外処理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">4.3 例外処理</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">5 その他これまでに説明しなかった高度な知識</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5.1内包表記</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">5.1.1 リスト内包表記</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">問題5.1</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">5.1.2 辞書内包表記</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">5.1.3 集合内包表記</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">問題5.1.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5 その他これまでに説明しなかった高度な知識</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">5.1内包表記</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">5.1.1 リスト内包表記</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">問題5.1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">5.1.2 辞書内包表記</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">5.1.3 集合内包表記</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">問題5.1.3</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">5.2 lambda式</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">問題5.2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">問題5.2</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">5.3 イテレータ</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">5.3.1 イテレータの基本</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">5.3.1 イテレータの例</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">5.3.2 ジェネレータ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">5.3 イテレータ</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">5.3.1 イテレータの基本</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">5.3.1 イテレータの例</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">5.3.2 ジェネレータ</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">レポート問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">レポート問題</a></li>
 </ul>
   </nav></div>
 
