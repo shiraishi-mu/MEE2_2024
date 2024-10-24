@@ -13,5 +13,5 @@ chapters:
   title: 10/10 第03回 Pythonにおける変数とメモリの深い関係、Numpy
 - file: lecture_ipynbs/MEE2_04web.ipynb
   title: 10/17 第04回 数値計算における誤差、方程式の解
-#- file: lecture_ipynbs/MEE2_05web.ipynb
-#  title: 10/24 第05回　準備中
+- file: lecture_ipynbs/MEE2_05web.ipynb
+  title: 10/24 第05回　連立一次方程式の解法（ガウスの消去法）
