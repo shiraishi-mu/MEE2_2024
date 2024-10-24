@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>第05回 数理工学実験２ &#8212; 数理工学実験2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lecture_ipynbs/MEE2_05web';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">数理工学実験2</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    数理工学実験２　２０２４年度
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MEE2_00.html">事前準備-Jupyter notebookの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_01web.html">9/26 第01回 Pythonの復習 -- データ型（タプル（tuple型）, 辞書（dict型）, 集合（set型）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_02web.html">10/3 第02回 関数，エラーのデバッグ，その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_03web.html">10/10 第03回 Pythonにおける変数とメモリの深い関係、Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_04web.html">10/17 第04回 数値計算における誤差、方程式の解</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/shiraishi-mu/MEE2_2024/issues/new?title=Issue%20on%20page%20%2Flecture_ipynbs/MEE2_05web.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lecture_ipynbs/MEE2_05web.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>第05回　数理工学実験２</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10 連立一次方程式の解法（ガウスの消去法）</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.1 （単純な）ガウスの消去法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">問題1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">問題2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">問題4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10.2 ピボット選択付きガウスの消去法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">レポート問題</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-linalg">10.3 scipy.linalgパッケージを用いた連立一次方程式の解法</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>第05回　数理工学実験２<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>10 連立一次方程式の解法（ガウスの消去法）<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>線形方程式の典型例である連立一次方程式 <strong><span class="math notranslate nohighlight">\(Ax=b\)</span></strong> の解を求めるためには <strong>ガウスの消去法</strong> という非常に優れた解法があります。ここではガウスの消去法のアルゴリズムをプログラムとして実装する方法を考えてみましょう。</p>
+<section id="id3">
+<h3>10.1 （単純な）ガウスの消去法<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>それではガウスの消去法を復習しながらプログラムを作成していきます。以下の3元連立一次方程式について考えます。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases} 3x_1 + x_2 + x_3 &amp;= 13 \\ 
+5x_1 + x_2 + 3x_3 &amp;= 20 \\
+4x_1 + 2x_2 + x_3 &amp;= 13
+\end{cases}
+\end{split}\]</div>
+<p>行列形式で表すと次のようになります．</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+3 &amp; 1 &amp; 2 \\
+5 &amp; 1 &amp; 3 \\
+4 &amp; 2 &amp; 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}=
+\begin{bmatrix}
+13 \\
+20 \\
+13 \\ 
+\end{bmatrix}
+\end{split}\]</div>
+<p>それでは、次の手順（ガウスの消去法）でこの連立方程式を解いてみます。</p>
+<ol class="arabic simple">
+<li><p><strong>第1列の2行目と3行目を0にする．</strong>
+具体的には「第1行<span class="math notranslate nohighlight">\( \times(-\frac{5}{3}) + 第2行 \)</span>」，「第1行 <span class="math notranslate nohighlight">\(\times (-\frac{4}{3}) + 第3行 \)</span>」とします．</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+3 &amp; 1 &amp; 2 \\
+0 &amp; -\frac{2}{3} &amp; -\frac{1}{3} \\
+0 &amp; \frac{2}{3} &amp; -\frac{5}{3} \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}=
+\begin{bmatrix}
+13 \\
+-\frac{5}{3} \\
+-\frac{13}{3} \\ 
+\end{bmatrix} \hspace{3cm}(6.2)
+\end{split}\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>第2列の3行目を0とする</strong>
+具体的には(6.2)式において、「第2行 <span class="math notranslate nohighlight">\(\times\)</span> 1 + 第3行」とします。</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+3 &amp; 1 &amp; 2 \\
+0 &amp; -\frac{2}{3} &amp; -\frac{1}{3} \\
+0 &amp; 0 &amp; -2 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}=
+\begin{bmatrix}
+13 \\
+-\frac{5}{3} \\
+-6 \\ 
+\end{bmatrix} \hspace{3cm}(6.2)
+\end{split}\]</div>
+<p>ここまでの手順が<strong>前進消去</strong>と呼ばれる操作になります。
+3. <span class="math notranslate nohighlight">\(x_3, x_2, x_1\)</span> の順に後ろから代入して解を求めます。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+%%\begin{array}
+%\begin{cases}
+x_3 = \frac{-6}{-2} = 3 \\
+x_2 = -\frac{3}{2}(-\frac{5}{3}+\frac{1}{3} \times 3) =1 \\ 
+x_1 = \frac{1}{3}(13-1-2 \times 3)=2
+%\end{cases}
+%%\end{array}
+\end{split}\]</div>
+<p>この手順が<strong>後退代入</strong>と呼ばれる操作になります。</p>
+<p>それでは上記の手順（アルゴリズム）に基づいてプログラムを作成していきましょう。次のプログラムは上記1の手順、つまり**「行の基本変形を用いて2行目以降の1列目の成分を0とするプログラム」**になります。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 解きたい連立方程式を準備</span>
+<span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">vect01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">])</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">mat01</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 前進消去1 - 2行目の1列目を消去</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+<span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">vect01</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 前進消去1 - 3行目の1列目を消去</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+<span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">vect01</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 1列目の成分が0になっているか確認</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat01</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">vect01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.          1.          2.        ]
+ [ 0.         -0.66666667 -0.33333333]
+ [ 0.          0.66666667 -1.66666667]] 
+ [13.         -1.66666667 -4.33333333]
+</pre></div>
+</div>
+</div>
+</div>
+<p>行ごとに1列目成分を0とする計算部分を<code class="docutils literal notranslate"><span class="pre">for</span></code>ループを用い表現します。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],[</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">vect01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">])</span>
+<span class="n">N</span><span class="o">=</span><span class="n">mat01</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#正方行列の次元</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;行の基本変形を用いて2行目以降の1列目の成分を0とするプログラム&#39;&#39;&#39;</span>
+    <span class="n">alpha</span><span class="o">=-</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">vect01</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>     
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mat01</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">vect01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.          1.          2.        ]
+ [ 0.         -0.66666667 -0.33333333]
+ [ 0.          0.66666667 -1.66666667]] 
+ [13.         -1.66666667 -4.33333333]
+</pre></div>
+</div>
+</div>
+</div>
+<p>プログラムの説明の前に，**「行の基本変形のアルゴリズム部分」<strong>と</strong>「それを使う部分」**を分けて見通しをよくするために、「行の基本変形を行う部分」を関数化します。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">trans_mat1</span><span class="p">(</span><span class="n">mat01</span><span class="p">,</span> <span class="n">vect01</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;行の基本変形を用いて2行目以降の一列目の成分を0とする関数&#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="n">alpha</span><span class="o">=-</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        
+    <span class="k">return</span> <span class="n">mat01</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],[</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]])</span>
+    <span class="n">vect01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">])</span>
+    <span class="n">N</span><span class="o">=</span><span class="n">mat01</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">trans_mat1</span><span class="p">(</span><span class="n">mat01</span><span class="p">,</span> <span class="n">vect01</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.          1.          2.        ]
+ [ 0.         -0.66666667 -0.33333333]
+ [ 0.          0.66666667 -1.66666667]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>関数<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">trans_mat():</span></code>の中身が「行の基本変形を用いて2行目以降の1列目の成分を <span class="math notranslate nohighlight">\(0\)</span>にするアルゴリズム部分」になります。 2重の<code class="docutils literal notranslate"><span class="pre">for</span></code>ループを使用しており1つ目のループは「2行目以降の1列目の成分を <span class="math notranslate nohighlight">\(0\)</span> にするように1行目を2行目以降へ順番に加えるループ」を表しており2つ目のループは「列成分を計算するループ」を表しています。1行目を用いて2行目以降の1列目の成分を 0 とするため1つ目のループの開始条件は<span class="math notranslate nohighlight">\(1\)</span>からとなってます。<code class="docutils literal notranslate"><span class="pre">alpha</span></code>は消去作業を行う際に一時的に利用する変数です。</p>
+<p>続いて、「3行目の2列目の成分を<span class="math notranslate nohighlight">\(0\)</span>にするアルゴリズム」について考えます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 解きたい連立方程式を準備</span>
+<span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">vect01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">])</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">mat01</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 前進消去1 - 2行目の1列目を消去</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+<span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">vect01</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 前進消去1 - 3行目の1列目を消去</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+<span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">vect01</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 前進消去2 - 3行目の2列目を消去</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="o">-</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">mat01</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+<span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">vect01</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># 上三角行列ができているか確認</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.          1.          2.        ]
+ [ 0.         -0.66666667 -0.33333333]
+ [ 0.          0.         -2.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>問題1<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>上のプログラムをカウンター変数<code class="docutils literal notranslate"><span class="pre">i</span></code>について、<code class="docutils literal notranslate"><span class="pre">for</span></code>ループを使ったプログラムを作りなさい</p>
+</section>
+<section id="id5">
+<h3>問題2<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>問題1のプログラムを関数化しなさい．</p>
+</section>
+<section id="id6">
+<h3>問題3<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>後退代入を加えガウスの消去法のプログラムを作成しなさい。 （ヒントは下記）</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import numpy as np
+
+def gauss_elimination(mat01, vect01, N):
+
+    &quot;&quot;&quot;前進消去により行列を上三角行列へ基本変形&quot;&quot;&quot;
+    for k in range(0, N-1):
+        for i in range(k+1, N):
+            alpha=-mat01[i][k] / mat01[k][k]
+            for j in range(k, N):
+                mat01[i][j]=mat01[i][j] + alpha * mat01[k][j]
+            vect01[i]=vect01[i]+alpha*vect01[k]
+
+    &quot;&quot;&quot;後退代入により下の行から順に代入し解を求める。(forループを2回用い下記の計算を行えばよい)&quot;&quot;&quot;
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[
+vect01[k]=\frac{vect01[k]-\sum^{N-1}_{j=k+1}mat01[k][j]vect01[j]}{mat01[k][k]}
+\]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if name==&#39;main&#39;:
+
+    &quot;&quot;&quot;メイン関数　係数行列・定数項・行列サイズを用意 Ax=b&quot;&quot;&quot;
+    mat01=np.array([[3.0, 1.0, 2.0],[5.0,1.0,3],[4.0,2.0,1.0]])
+    vect01=np.array([13.0, 20.0, 13.0])
+    N=mat01.shape[0]
+
+    gauss_elimination(mat01, vect01, N)
+    print(vect01)
+</pre></div>
+</div>
+<p>解[2,1,3]</p>
+</section>
+<section id="id7">
+<h3>問題4<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>次の3元連立一次方程式を上記のプログラムと手計算で解きなさい。現れた結果を見比べながらプログラムを実行した際に何が起こっているのか推測しなさい。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+2 &amp; 1 &amp; 1 \\
+4 &amp; 2 &amp; 5 \\
+8 &amp; 8 &amp; 9 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}=
+\begin{bmatrix}
+15 \\
+39 \\
+83 \\ 
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="id8">
+<h3>10.2 ピボット選択付きガウスの消去法<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>16.1のプログラムは行列の対角成分<span class="math notranslate nohighlight">\(mat01[k][k]=0\)</span>の時には上手く解けません。そこで、行の入れ替えを行いながらガウスの消去法を実行するプログラムへと改良しましょう。<br />
+以下の連立一次方程式について考えます。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+0 &amp; 1 &amp; 2 \\
+1 &amp; 0 &amp; 3 \\
+3 &amp; 1 &amp; 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}=
+\begin{bmatrix}
+2 \\
+2 \\
+-3 \\ 
+\end{bmatrix}
+\end{split}\]</div>
+<ol class="arabic simple">
+<li><p>上の行列の第1列の絶対値最大要素は第3行の<span class="math notranslate nohighlight">\(3\)</span>なので第1行と第3行を交換します。</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+3 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 3 \\
+0 &amp; 1 &amp; 2 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}=
+\begin{bmatrix}
+-3 \\
+2 \\
+2 \\ 
+\end{bmatrix}
+\end{split}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>先ほどのガウスの消去法と同様に第1列の2行目と3行目を<span class="math notranslate nohighlight">\(0\)</span>にする。</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+3 &amp; 1 &amp; 0 \\
+0 &amp; -\frac{1}{3} &amp; 3 \\
+0 &amp; 1 &amp; 2 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}=
+\begin{bmatrix}
+-3 \\
+3 \\
+2 \\ 
+\end{bmatrix}
+\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>第2列の第2行以下で絶対値が最大のものは第3行の<span class="math notranslate nohighlight">\(1\)</span>なので、第2行と第3行を入れ替えます。</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+3 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 2 \\
+0 &amp; -\frac{1}{3} &amp; 3 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}=
+\begin{bmatrix}
+-3 \\
+2 \\
+3 \\ 
+\end{bmatrix}
+\end{split}\]</div>
+<p>ここまでの手順で前進消去が終わりです。後は後退代入を行えば解 <span class="math notranslate nohighlight">\(x_1,x_2,x_3\)</span> を求めることが出来ます。</p>
+<p>これをn次元連立一次方程式について行うには次のような手順を実装すればいいことになります。 ただし、すでに消去作業を<span class="math notranslate nohighlight">\(k−1\)</span>回行っているとします。</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span>回目の消去作業において、 <span class="math notranslate nohighlight">\( \left| a_{ik} \right|　(i=k,k+1,⋯,n)\)</span> のうちで最大のものを調べて、その行番号を<span class="math notranslate nohighlight">\(ip\)</span>とする。</p></li>
+<li><p><span class="math notranslate nohighlight">\(ip \neq k\)</span>ならば、<span class="math notranslate nohighlight">\(k\)</span>行目と<span class="math notranslate nohighlight">\(ip\)</span>行目を入れ替えて消去作業を行う。</p></li>
+</ol>
+<p>行列の列方向に要素を調べその最大要素に着目し行の入れ替えを行います。この行列の最大要素のことを<strong>ピボット</strong>といい、この操作が<strong>部分ピボット選択</strong>の勘所になります。アルゴリズムは次のようになります。</p>
+<p>部分ピボット選択付きガウスの消去法のアルゴリズム</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for k in range(0, N-1)  
+    a_max(aの最大値)として絶対値a_kkを代入　#絶対値関数np.abs()を使うと良い。
+    ipへ最大値を持つ行番号kを代入  
+    for i in range(k, N)
+        if 絶対値a_ik &gt; a_max
+            a_maxへ絶対値a_ikを代入
+            ipへ最大値を持つ行番号iを代入
+    if a_max &lt; epsilon #epsilon=2^{50}程度
+        print(&quot;mat01は正則ではない&quot;)
+    if ip != k
+        for j=k, k+1,…, N
+            a_kjとa_{ip,j}の入れ換え #np.arrayを代入するときにはcopy()メソッドを使用すると良い（例えば2×2行列のarray配列の1行目を変数tmpへコピーするとき、tmp=array[i].copy()）。
+        b_kとb_{ip}の入れ換え
+    前進消去
+後退代入
+</pre></div>
+</div>
+<p><span class="math notranslate nohighlight">\(a_{max}=0\)</span>の判定を<span class="math notranslate nohighlight">\(a_{max}&lt;ϵ\)</span>としていることに注意して下さい。浮動小数点演算では必ず丸め誤差が入るのでコンピュータで計算した<span class="math notranslate nohighlight">\(a_{max}\)</span>が<span class="math notranslate nohighlight">\(0\)</span>になることはまずありません。したがって十分小さい正数<span class="math notranslate nohighlight">\(\epsilon\)</span>を用い<span class="math notranslate nohighlight">\(a_{max}&lt; \epsilon\)</span>とするのが一般的です。</p>
+</section>
+<section id="id9">
+<h3>レポート問題<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>ピボット選択付きガウスの消去法のプログラムを作成しなさい。
+〆切：11/05（日）までにGoogleClassroomでjupyter notebook形式「id_学籍番号_05.ipynb」形式で送ること．</p>
+</section>
+<section id="scipy-linalg">
+<h3>10.3 scipy.linalgパッケージを用いた連立一次方程式の解法<a class="headerlink" href="#scipy-linalg" title="Link to this heading">#</a></h3>
+<p>pythonには<code class="docutils literal notranslate"><span class="pre">scipy</span></code>という科学技術計算ライブラリが用意されており、その中に線形代数パッケージが用意されています．詳細については<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html">ここ</a>．連立一次方程式の解法には<code class="docutils literal notranslate"><span class="pre">solve()</span></code>関数を用います．</p>
+<div class="math notranslate nohighlight">
+\[
+\displaystyle{Ax=b}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+3 &amp; 1 &amp; 2 \\
+5 &amp; 1 &amp; 3 \\
+4 &amp; 2 &amp; 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}=
+\begin{bmatrix}
+13 \\
+20 \\
+13 \\ 
+\end{bmatrix}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="c1">#scipyモジュールからlinalgパッケージをインポート</span>
+
+<span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],[</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">vect01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">])</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">mat01</span><span class="p">,</span> <span class="n">vect01</span><span class="p">)</span> <span class="c1">#連立一次方程式</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2. 1. 3.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>固有値問題を解く関数も用意されてます．</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A= \begin{bmatrix}
+1 &amp; -2 \\
+3 &amp; 6 \\
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+Ax=\lambda x
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="c1">#mat01=np.array([[3.0, 2.0, -2.0],[1, 2, 0],[1, 1, 1]])</span>
+<span class="n">mat02</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+
+<span class="n">eig01</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">mat02</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#固有値問題を解く</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eig01</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#固有値を大きい順に出力</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eig01</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#対応する固有ベクトルを出力</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.+0.j 4.+0.j]
+[[-0.70710678  0.5547002 ]
+ [ 0.70710678 -0.83205029]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lecture_ipynbs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10 連立一次方程式の解法（ガウスの消去法）</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.1 （単純な）ガウスの消去法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">問題1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">問題2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">問題4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10.2 ピボット選択付きガウスの消去法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">レポート問題</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-linalg">10.3 scipy.linalgパッケージを用いた連立一次方程式の解法</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Masashi Shiraishi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
