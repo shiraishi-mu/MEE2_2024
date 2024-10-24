@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>第05回 数理工学実験２ &#8212; 数理工学実験2</title>
+    <title>10 連立一次方程式の解法（ガウスの消去法） &#8212; 数理工学実験2</title>
   
   
   
@@ -59,10 +59,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lecture_ipynbs/MEE2_05web';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lecture_ipynbs/MEE2_05';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="第04回 数理工学実験２" href="MEE2_04web.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,6 +124,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -174,13 +175,13 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MEE2_00.html">事前準備-Jupyter notebookの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MEE2_01web.html">9/26 第01回 Pythonの復習 -- データ型（タプル（tuple型）, 辞書（dict型）, 集合（set型）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MEE2_02web.html">10/3 第02回 関数，エラーのデバッグ，その他</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MEE2_03web.html">10/10 第03回 Pythonにおける変数とメモリの深い関係、Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MEE2_04web.html">10/17 第04回 数値計算における誤差、方程式の解</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10/24 第05回　連立一次方程式の解法（ガウスの消去法）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_05web.html">10/24 第05回　連立一次方程式の解法（ガウスの消去法）</a></li>
 </ul>
 
     </div>
@@ -224,7 +225,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/shiraishi-mu/MEE2_2024/issues/new?title=Issue%20on%20page%20%2Flecture_ipynbs/MEE2_05web.html&body=Your%20issue%20content%20here." target="_blank"
+<a href="https://github.com/shiraishi-mu/MEE2_2024/issues/new?title=Issue%20on%20page%20%2Flecture_ipynbs/MEE2_05.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button"
    title="Open an issue"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -250,7 +251,7 @@
       
       
       
-      <li><a href="../_sources/lecture_ipynbs/MEE2_05web.ipynb" target="_blank"
+      <li><a href="../_sources/lecture_ipynbs/MEE2_05.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -334,7 +335,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>第05回　数理工学実験２</h1>
+    <h1>10 連立一次方程式の解法（ガウスの消去法）</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -344,17 +345,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10 連立一次方程式の解法（ガウスの消去法）</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.1 （単純な）ガウスの消去法</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">問題1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">問題2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">問題4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10.2 ピボット選択付きガウスの消去法</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">レポート問題</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-linalg">10.3 scipy.linalgパッケージを用いた連立一次方程式の解法</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.1 （単純な）ガウスの消去法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">問題1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">問題2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">問題3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">10.2 ピボット選択付きガウスの消去法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">レポート問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-linalg">10.3 scipy.linalgパッケージを用いた連立一次方程式の解法</a></li>
 </ul>
             </nav>
         </div>
@@ -367,12 +365,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>第05回　数理工学実験２<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<section id="id2">
-<h2>10 連立一次方程式の解法（ガウスの消去法）<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h1>10 連立一次方程式の解法（ガウスの消去法）<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>線形方程式の典型例である連立一次方程式 <strong><span class="math notranslate nohighlight">\(Ax=b\)</span></strong> の解を求めるためには <strong>ガウスの消去法</strong> という非常に優れた解法があります。ここではガウスの消去法のアルゴリズムをプログラムとして実装する方法を考えてみましょう。</p>
-<section id="id3">
-<h3>10.1 （単純な）ガウスの消去法<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h2>10.1 （単純な）ガウスの消去法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>それではガウスの消去法を復習しながらプログラムを作成していきます。以下の3元連立一次方程式について考えます。</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -606,16 +602,82 @@ x_1 = \frac{1}{3}(13-1-2 \times 3)=2
 </div>
 </div>
 </section>
-<section id="id4">
-<h3>問題1<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h2>問題1<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>上のプログラムをカウンター変数<code class="docutils literal notranslate"><span class="pre">i</span></code>について、<code class="docutils literal notranslate"><span class="pre">for</span></code>ループを使ったプログラムを作りなさい</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#解答 問題1</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 解きたい連立方程式を準備</span>
+<span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">vect01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">])</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">mat01</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 前進消去 - 2,3行目の1列目を消去, 3行目の2列目を消去</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat01</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">vect01</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mat01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.          1.          2.        ]
+ [ 0.         -0.66666667 -0.33333333]
+ [ 0.          0.         -2.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>問題2<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>問題1のプログラムを関数化しなさい．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 解答　問題2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 基本変形をまとめて関数にする</span>
+<span class="k">def</span> <span class="nf">gauss_elimination</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">vect</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="c1"># 上三角行列を作る</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+                <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">vect</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">vect</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            
+    <span class="k">return</span> <span class="n">mat</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],[</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]])</span>
+    <span class="n">vect01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">])</span>
+    <span class="n">N</span><span class="o">=</span><span class="n">mat01</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">gauss_elimination</span><span class="p">(</span><span class="n">mat01</span><span class="p">,</span> <span class="n">vect01</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.          1.          2.        ]
+ [ 0.         -0.66666667 -0.33333333]
+ [ 0.          0.         -2.        ]]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id5">
-<h3>問題2<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>問題1のプログラムを関数化しなさい．</p>
-</section>
-<section id="id6">
-<h3>問題3<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h2>問題3<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>後退代入を加えガウスの消去法のプログラムを作成しなさい。 （ヒントは下記）</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import numpy as np
 
@@ -648,9 +710,48 @@ vect01[k]=\frac{vect01[k]-\sum^{N-1}_{j=k+1}mat01[k][j]vect01[j]}{mat01[k][k]}
 </pre></div>
 </div>
 <p>解[2,1,3]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 解答　問題3</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 基本変形をまとめて関数にする</span>
+<span class="k">def</span> <span class="nf">gauss_elimination</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">vect</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="c1"># 上三角行列を作る</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+                <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">vect</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">vect</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+    <span class="c1"># 後退代入</span>
+    <span class="c1">#for k in range(N):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)):</span>
+        <span class="c1">#i = (N-1) - k</span>
+        <span class="n">vect</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="n">vect</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">vect</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+            
+    <span class="k">return</span> <span class="n">vect</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],[</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]])</span>
+    <span class="n">vect01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">])</span>
+    <span class="n">N</span><span class="o">=</span><span class="n">mat01</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">gauss_elimination</span><span class="p">(</span><span class="n">mat01</span><span class="p">,</span> <span class="n">vect01</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2. 1. 3.]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="id7">
-<h3>問題4<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h2>問題4<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>次の3元連立一次方程式を上記のプログラムと手計算で解きなさい。現れた結果を見比べながらプログラムを実行した際に何が起こっているのか推測しなさい。</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -671,8 +772,8 @@ x_3
 \end{bmatrix}
 \end{split}\]</div>
 </section>
-<section id="id8">
-<h3>10.2 ピボット選択付きガウスの消去法<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h2>10.2 ピボット選択付きガウスの消去法<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>16.1のプログラムは行列の対角成分<span class="math notranslate nohighlight">\(mat01[k][k]=0\)</span>の時には上手く解けません。そこで、行の入れ替えを行いながらガウスの消去法を実行するプログラムへと改良しましょう。<br />
 以下の連立一次方程式について考えます。</p>
 <div class="math notranslate nohighlight">
@@ -783,13 +884,76 @@ x_3
 </div>
 <p><span class="math notranslate nohighlight">\(a_{max}=0\)</span>の判定を<span class="math notranslate nohighlight">\(a_{max}&lt;ϵ\)</span>としていることに注意して下さい。浮動小数点演算では必ず丸め誤差が入るのでコンピュータで計算した<span class="math notranslate nohighlight">\(a_{max}\)</span>が<span class="math notranslate nohighlight">\(0\)</span>になることはまずありません。したがって十分小さい正数<span class="math notranslate nohighlight">\(\epsilon\)</span>を用い<span class="math notranslate nohighlight">\(a_{max}&lt; \epsilon\)</span>とするのが一般的です。</p>
 </section>
-<section id="id9">
-<h3>レポート問題<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h2>レポート問題<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>ピボット選択付きガウスの消去法のプログラムを作成しなさい。
 〆切：11/05（日）までにGoogleClassroomでjupyter notebook形式「id_学籍番号_05.ipynb」形式で送ること．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 解答　レポート問題</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">gauss_elimination2</span><span class="p">(</span><span class="n">mat01</span><span class="p">,</span> <span class="n">vect01</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">epsilon</span><span class="o">=</span><span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">amax</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">mat01</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">])</span>
+        <span class="n">ip</span><span class="o">=</span><span class="n">k</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">])</span><span class="o">&gt;</span><span class="n">amax</span><span class="p">:</span>
+                <span class="n">amax</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">])</span>
+                <span class="n">ip</span><span class="o">=</span><span class="n">i</span>
+        
+        <span class="k">if</span> <span class="n">amax</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mat01は正則ではない&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">ip</span> <span class="o">!=</span><span class="n">k</span><span class="p">:</span>
+            <span class="n">tmp</span><span class="o">=</span><span class="n">mat01</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">mat01</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span><span class="o">=</span><span class="n">mat01</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">mat01</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            
+            <span class="n">tmp1</span><span class="o">=</span><span class="n">vect01</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">vect01</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span><span class="o">=</span><span class="n">vect01</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">vect01</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">tmp1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="n">alpha</span><span class="o">=-</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+                <span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">mat01</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">mat01</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">vect01</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">alpha</span><span class="o">*</span><span class="n">vect01</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        
+    <span class="n">temp</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">vect01</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+                <span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="o">-</span><span class="n">mat01</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">vect01</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="c1">#print(j, temp)</span>
+        <span class="n">vect01</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="o">/</span> <span class="n">mat01</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+        <span class="c1">#print(vect01)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">mat01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],[</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]])</span>
+    <span class="n">vect01</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">])</span>
+    <span class="n">N</span><span class="o">=</span><span class="n">mat01</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">gauss_elimination2</span><span class="p">(</span><span class="n">mat01</span><span class="p">,</span> <span class="n">vect01</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mat01</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">vect01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5.          1.          3.        ]
+ [ 0.          1.2        -1.4       ]
+ [ 0.          0.          0.66666667]]
+[2. 1. 3.]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="scipy-linalg">
-<h3>10.3 scipy.linalgパッケージを用いた連立一次方程式の解法<a class="headerlink" href="#scipy-linalg" title="Link to this heading">#</a></h3>
+<h2>10.3 scipy.linalgパッケージを用いた連立一次方程式の解法<a class="headerlink" href="#scipy-linalg" title="Link to this heading">#</a></h2>
 <p>pythonには<code class="docutils literal notranslate"><span class="pre">scipy</span></code>という科学技術計算ライブラリが用意されており、その中に線形代数パッケージが用意されています．詳細については<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html">ここ</a>．連立一次方程式の解法には<code class="docutils literal notranslate"><span class="pre">solve()</span></code>関数を用います．</p>
 <div class="math notranslate nohighlight">
 \[
@@ -868,7 +1032,6 @@ Ax=\lambda x
 </div>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -900,15 +1063,6 @@ Ax=\lambda x
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="MEE2_04web.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">第04回　数理工学実験２</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
@@ -925,17 +1079,14 @@ Ax=\lambda x
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10 連立一次方程式の解法（ガウスの消去法）</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.1 （単純な）ガウスの消去法</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">問題1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">問題2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">問題4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10.2 ピボット選択付きガウスの消去法</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">レポート問題</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-linalg">10.3 scipy.linalgパッケージを用いた連立一次方程式の解法</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.1 （単純な）ガウスの消去法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">問題1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">問題2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">問題3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">10.2 ピボット選択付きガウスの消去法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">レポート問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-linalg">10.3 scipy.linalgパッケージを用いた連立一次方程式の解法</a></li>
 </ul>
   </nav></div>
 
