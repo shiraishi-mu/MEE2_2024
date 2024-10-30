@@ -15,3 +15,5 @@ chapters:
   title: 10/17 第04回 数値計算における誤差、方程式の解
 - file: lecture_ipynbs/MEE2_05web.ipynb
   title: 10/24 第05回　連立一次方程式の解法（ガウスの消去法）
+- file: lecture_ipynbs/MEE2_06web.ipynb
+  title: 10/31 第06回　数値積分法（台形法、シンプソン法）
