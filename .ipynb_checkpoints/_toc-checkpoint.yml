@@ -21,8 +21,8 @@ chapters:
   title: 11/7 第07回　常微分方程式（オイラー法、ルンゲクッタ法）
 - file: lecture_ipynbs/MEE2_08web.ipynb
   title: 11/21 第08回　グラフィック
-#- file: lecture_ipynbs/MEE2_09web.ipynb
-#  title: 11/28 第09回　モンテカルロ法
+- file: lecture_ipynbs/MEE2_09web.ipynb
+  title: 11/28 第09回　モンテカルロ法
 #- file: lecture_ipynbs/MEE2_10web.ipynb
 #  title: 12/5 第10回　モンテカルロ法の応用
 #- file: lecture_ipynbs/MEE2_11web.ipynb
