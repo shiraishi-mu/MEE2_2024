@@ -399,16 +399,18 @@ document.write(`
 
 <span class="c1"># 乱数のseed（種）の設定</span>
 <span class="c1"># np.random.seed(1) # NumPy ver 1.6までの定義方法</span>
-<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># 範囲[0, 1)の一様分布から1つ乱数を生成する。</span>
 <span class="c1"># print(np.random.rand()) # NumPy ver 1.6までの定義方法</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5118216247002567
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9560017096289753
+0.20768181007914688
 </pre></div>
 </div>
 </div>
@@ -443,11 +445,12 @@ document.write(`
 <section id="seed">
 <h3>乱数のseed（種）の設定<a class="headerlink" href="#seed" title="Link to this heading">#</a></h3>
 <p>コンピュータ内において乱数とはあくまで<strong>疑似乱数</strong>です。要するに乱数を計算する式に基づいて乱数を出力しているのです。その際、乱数を計算する式に初期値を決める必要があります。典型的な例は<strong>線形合同法</strong>と呼ばれる下記の式に従う疑似乱数発生方法です。</p>
-<p>\begin{equation}
+<div class="math notranslate nohighlight">
+\[
 x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
-\end{equation}</p>
-<p><span class="math notranslate nohighlight">\(a,b,m\)</span>は整数であり、<span class="math notranslate nohighlight">\(x_0\)</span>をユーザーが決めるとこの式に従い乱数が生成される仕組みです。もちろん、上手に<span class="math notranslate nohighlight">\(a,b,m\)</span>を設定することが重要であり、それにより疑似乱数の周期が決まります。上式の<span class="math notranslate nohighlight">\(x_0\)</span>のようにユーザー側で設定する必要がある初期値のことを**乱数の種（seed）**と言います。乱数を使う場合には必ずseedを設定することを忘れないで下さい。<code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>においてseedを設定するには下記のように<code class="docutils literal notranslate"><span class="pre">random.seed()</span></code>メソッドを用います。引数にseedを設定します。seedとしてはintもしくはnumpy配列（intの値）が使えます。詳しくは<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed"><code class="docutils literal notranslate"><span class="pre">numpy.random.seed</span></code></a>を参照してください。<br />
-モンテカルロ法では初期値を数多く取り繰り返し計算機実験を実行することになります。そこで、下記では<code class="docutils literal notranslate"><span class="pre">for</span></code>ループ共に乱数を使う典型的な例を載せてます。</p>
+\]</div>
+<p><span class="math notranslate nohighlight">\(a,b,m\)</span>は整数であり、<span class="math notranslate nohighlight">\(x_0\)</span>をユーザーが決めるとこの式に従い乱数が生成される仕組みです。もちろん、上手に<span class="math notranslate nohighlight">\(a,b,m\)</span>を設定することが重要であり、それにより疑似乱数の周期が決まります。上式の<span class="math notranslate nohighlight">\(x_0\)</span>のようにユーザー側で設定する必要がある初期値のことを<strong>乱数の種（seed）</strong> と言います。乱数を使う場合には必ずseedを設定することを忘れないで下さい。<code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>においてseedを設定するには下記のように<code class="docutils literal notranslate"><span class="pre">np.random.default_rng()</span></code>(旧：<code class="docutils literal notranslate"><span class="pre">random.seed()</span></code>メソッド)を用います。引数にseedを設定します。seedとしてはintもしくはnumpy配列（intの値）が使えます。~~詳しくは<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed"><code class="docutils literal notranslate"><span class="pre">numpy.random.seed</span></code></a>を参照してください。~~</p>
+<p>モンテカルロ法では初期値を数多く取り繰り返し計算機実験を実行することになります。そこで、下記では<code class="docutils literal notranslate"><span class="pre">for</span></code>ループ共に乱数を使う典型的な例を載せてます。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#乱数をループと共に使う場合のテンプレート</span>
@@ -465,25 +468,15 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.417022004702574
-0.5118216247002567
-0.7203244934421581
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5118216247002567
 0.9504636963259353
-0.00011437481734488664
 0.14415961271963373
-0.30233257263183977
 0.9486494471372439
-0.14675589081711304
 0.31183145201048545
-0.0923385947687978
 0.42332644897257565
-0.1862602113776709
 0.8277025938204418
-0.34556072704304774
 0.4091991363691613
-0.39676747423066994
 0.5495936876730595
-0.538816734003357
 0.027559113243068367
 </pre></div>
 </div>
@@ -546,7 +539,7 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f623a5e5afd5bb8d63888fa4942e47465a9e45a24da6e5ed7f0a55b159c38103.png" src="../_images/f623a5e5afd5bb8d63888fa4942e47465a9e45a24da6e5ed7f0a55b159c38103.png" />
+<img alt="../_images/312d032b04df04bfc3b8c059c831237a5c69b68cf0869b9a2a6ad64a8b648cdd.png" src="../_images/312d032b04df04bfc3b8c059c831237a5c69b68cf0869b9a2a6ad64a8b648cdd.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>モジュールでは様々な確率密度関数に従う乱数を生成できます。詳細は<a class="reference external" href="https://numpy.org/doc/2.1/reference/random/legacy.html#distributions">マニュアル（レガシー）</a> <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#distributions">マニュアル</a>を調べて下さい。</p>
@@ -555,9 +548,10 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 <section id="id3">
 <h2>問題<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>上記の要領で正規分布に従う乱数の確率分布をグラフで表示せよ。</p>
-<p>\begin{equation}
+<div class="math notranslate nohighlight">
+\[
 \displaystyle{p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp{\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)}}
-\end{equation}</p>
+\]</div>
 <p>正規分布に従う乱数を出力するメソッドは次の通りである。<br />
 <code class="docutils literal notranslate"><span class="pre">np.random.normal(mu,</span> <span class="pre">sigma,</span> <span class="pre">size)</span></code>（<code class="docutils literal notranslate"><span class="pre">rng.normal(mu,</span> <span class="pre">sigma,</span> <span class="pre">size)</span></code>）
 ここで<code class="docutils literal notranslate"><span class="pre">mu</span></code>は平均<span class="math notranslate nohighlight">\(\mu\)</span>、<code class="docutils literal notranslate"><span class="pre">sigma</span></code>は標準偏差<span class="math notranslate nohighlight">\(\sigma\)</span>である。
@@ -568,17 +562,20 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 <p>確率の重要な定理「<strong>中心極限定理</strong>」を視覚化してみましょう。中心極限定理の数学的な表現は次の通り。</p>
 <p>（実用的な）中心極限定理</p>
 <p><span class="math notranslate nohighlight">\(X_1, X_2, \dots , X_n \)</span>を同一の確率分布（ただし，平均<span class="math notranslate nohighlight">\(\mu\)</span>，分散<span class="math notranslate nohighlight">\(\sigma\)</span>が有限）に従う独立な確率変数とする．このとき，<span class="math notranslate nohighlight">\(X_1, X_2, \dots , X_n \)</span>の単純平均，</p>
-<p>\begin{equation}
+<div class="math notranslate nohighlight">
+\[
 \displaystyle{S_n=\frac{1}{n}(X_1+X_2+ \dots +X_n)}
-\end{equation}</p>
+\]</div>
 <p>に対して</p>
-<p>\begin{equation}
+<div class="math notranslate nohighlight">
+\[
 \displaystyle{Z_n=\frac{\sqrt{n}}{\sigma}(S_n-\mu)}
-\end{equation}</p>
+\]</div>
 <p>とする．このとき，<span class="math notranslate nohighlight">\(Z_n\)</span>の確率分布<span class="math notranslate nohighlight">\(f_n\)</span>は<span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span>で，</p>
-<p>\begin{equation}
+<div class="math notranslate nohighlight">
+\[
 \displaystyle{p(x)=\lim_{n \rightarrow \infty}f_n(x)=\frac{1}{\sqrt{2 \pi \sigma^2}} \exp \Bigl[ -\frac{x^2}{2} \Bigr]}
-\end{equation}</p>
+\]</div>
 <p>この定理の意味は「<strong>同一確率分布に従う独立な確率変数の和<span class="math notranslate nohighlight">\(S_n\)</span>は<span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span>の極限で正規分布になる</strong>」ということになります。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
