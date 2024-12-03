@@ -6,7 +6,8 @@ root: intro
 chapters:
 - file: lecture_ipynbs/MEE2_00.ipynb
 - file: lecture_ipynbs/MEE2_01web.ipynb
-  title: 9/26 第01回 Pythonの復習 -- データ型（タプル（tuple型）, 辞書（dict型）, 集合（set型）
+  # title: 9/26 第01回 Pythonの復習 -- データ型（タプル（tuple型）, 辞書（dict型）, 集合（set型）
+  # title: 9/26 第01回 Pythonの復習 -- データ型（タプル（tuple型）, 辞書（dict型）, 集合（set型）
 - file: lecture_ipynbs/MEE2_02web.ipynb
   title: 10/3 第02回 関数，エラーのデバッグ，その他
 - file: lecture_ipynbs/MEE2_03web.ipynb
@@ -23,8 +24,8 @@ chapters:
   title: 11/21 第08回　グラフィック
 - file: lecture_ipynbs/MEE2_09web.ipynb
   title: 11/28 第09回　モンテカルロ法
-#- file: lecture_ipynbs/MEE2_10web.ipynb
-#  title: 12/5 第10回　モンテカルロ法の応用
+- file: lecture_ipynbs/MEE2_10web.ipynb
+  title: 12/5 第10回　モンテカルロ法の応用
 #- file: lecture_ipynbs/MEE2_11web.ipynb
 #  title: 12/12 第11回　発表会1
 #- file: lecture_ipynbs/MEE2_12web.ipynb
