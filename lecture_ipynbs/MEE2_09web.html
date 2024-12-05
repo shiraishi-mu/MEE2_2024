@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>14 モンテカルロ法 &#8212; 数理工学実験2</title>
+    <title>第09回 数理工学実験２ &#8212; 数理工学実験2</title>
   
   
   
@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -62,9 +65,11 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'lecture_ipynbs/MEE2_09web';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="第１0回 数理工学実験２" href="MEE2_10web.html" />
     <link rel="prev" title="第08回 数理工学実験２" href="MEE2_08web.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -80,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -100,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -108,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -125,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -155,15 +149,11 @@
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -175,7 +165,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MEE2_00.html">事前準備-Jupyter notebookの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_00.html">0 事前準備-Jupyter notebookの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MEE2_01web.html">9/26 第01回 Pythonの復習 -- データ型（タプル（tuple型）, 辞書（dict型）, 集合（set型）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MEE2_02web.html">10/3 第02回 関数，エラーのデバッグ，その他</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MEE2_03web.html">10/10 第03回 Pythonにおける変数とメモリの深い関係、Numpy</a></li>
@@ -184,8 +174,8 @@
 <li class="toctree-l1"><a class="reference internal" href="MEE2_06web.html">10/31 第06回　数値積分法（台形法、シンプソン法）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MEE2_07web.html">11/7 第07回　常微分方程式（オイラー法、ルンゲクッタ法）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MEE2_08web.html">11/21 第08回　グラフィック</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14 モンテカルロ法</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11/28 第09回　モンテカルロ法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MEE2_10web.html">12/5 第10回　モンテカルロ法の応用</a></li>
 </ul>
 
     </div>
@@ -308,24 +298,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -339,7 +321,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>14 モンテカルロ法</h1>
+    <h1>第09回 数理工学実験２</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -349,28 +331,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">14 モンテカルロ法</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.1 乱数の発生と使い方</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14 モンテカルロ法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">14.1 乱数の発生と使い方</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seed">乱数のseed（種）の設定</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">問題</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">14.2 中心極限定理</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.3 サイコロの作成</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">問題14.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.2 中心極限定理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.3 サイコロの作成</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d">14.4 1Dランダムウォーク</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1Dランダムウォークの統計的性質</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">問題14.2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">14.4 1Dランダムウォーク</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1Dランダムウォークの統計的性質</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">問題</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">14.5 2Dランダムウォーク</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">レポート問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">問題14.3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">14.5 2Dランダムウォーク</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">レポート問題</a></li>
+</ul>
             </nav>
         </div>
     </div>
@@ -382,10 +365,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>14 モンテカルロ法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>ここでは<strong>モンテカルロ法</strong>について学びます。モンテカルロ法は乱数を用いて確率的に数値計算を行う方法の総称です。（解析的に解けない）積分計算、物理現象、金融現象、生物現象、統計的推測に至るまで綺麗な数学が及ばない諸現象に幅広く用いられている手法であり、計算機能力向上とともにその有用性が認識されてきました。</p>
+<h1>第09回 数理工学実験２<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
-<h2>14.1 乱数の発生と使い方<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>14 モンテカルロ法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>ここでは<strong>モンテカルロ法</strong>について学びます。モンテカルロ法は乱数を用いて確率的に数値計算を行う方法の総称です。（解析的に解けない）積分計算、物理現象、金融現象、生物現象、統計的推測に至るまで綺麗な数学が及ばない諸現象に幅広く用いられている手法であり、計算機能力向上とともにその有用性が認識されてきました。</p>
+<section id="id3">
+<h3>14.1 乱数の発生と使い方<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Pythonでは疑似乱数を生成する方法はいくつか存在し、</p>
 <ul class="simple">
 <li><p><strong>randomモジュール</strong></p></li>
@@ -442,6 +427,7 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
 <section id="seed">
 <h3>乱数のseed（種）の設定<a class="headerlink" href="#seed" title="Link to this heading">#</a></h3>
 <p>コンピュータ内において乱数とはあくまで<strong>疑似乱数</strong>です。要するに乱数を計算する式に基づいて乱数を出力しているのです。その際、乱数を計算する式に初期値を決める必要があります。典型的な例は<strong>線形合同法</strong>と呼ばれる下記の式に従う疑似乱数発生方法です。</p>
@@ -545,8 +531,8 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 <p><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>モジュールでは様々な確率密度関数に従う乱数を生成できます。詳細は<a class="reference external" href="https://numpy.org/doc/2.1/reference/random/legacy.html#distributions">マニュアル（レガシー）</a> <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#distributions">マニュアル</a>を調べて下さい。</p>
 </section>
 </section>
-<section id="id3">
-<h2>問題<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>問題14.1<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>上記の要領で正規分布に従う乱数の確率分布をグラフで表示せよ。</p>
 <div class="math notranslate nohighlight">
 \[
@@ -556,9 +542,8 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 <code class="docutils literal notranslate"><span class="pre">np.random.normal(mu,</span> <span class="pre">sigma,</span> <span class="pre">size)</span></code>（<code class="docutils literal notranslate"><span class="pre">rng.normal(mu,</span> <span class="pre">sigma,</span> <span class="pre">size)</span></code>）
 ここで<code class="docutils literal notranslate"><span class="pre">mu</span></code>は平均<span class="math notranslate nohighlight">\(\mu\)</span>、<code class="docutils literal notranslate"><span class="pre">sigma</span></code>は標準偏差<span class="math notranslate nohighlight">\(\sigma\)</span>である。
 生成する乱数のサイズは100000、分割数（棒の数）は100とし、<span class="math notranslate nohighlight">\(\mu=0\)</span>、<span class="math notranslate nohighlight">\(\sigma=1\)</span>としなさい。</p>
-</section>
-<section id="id4">
-<h2>14.2 中心極限定理<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>14.2 中心極限定理<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>確率の重要な定理「<strong>中心極限定理</strong>」を視覚化してみましょう。中心極限定理の数学的な表現は次の通り。</p>
 <p>（実用的な）中心極限定理</p>
 <p><span class="math notranslate nohighlight">\(X_1, X_2, \dots , X_n \)</span>を同一の確率分布（ただし，平均<span class="math notranslate nohighlight">\(\mu\)</span>，分散<span class="math notranslate nohighlight">\(\sigma\)</span>が有限）に従う独立な確率変数とする．このとき，<span class="math notranslate nohighlight">\(X_1, X_2, \dots , X_n \)</span>の単純平均，</p>
@@ -618,8 +603,8 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 </div>
 </div>
 </section>
-<section id="id5">
-<h2>14.3 サイコロの作成<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h3>14.3 サイコロの作成<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>乱数を使ってサイコロ（正6面体）を作ってみましょう。使いまわしできるように下記のように関数化して下さい。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -654,13 +639,13 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 </div>
 </div>
 </div>
-<section id="id6">
-<h3>問題<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="id7">
+<h2>問題14.2<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>サイコロを<span class="math notranslate nohighlight">\(2^1、2^2、\cdots 2^{10}\)</span>回振るシミュレーションを行い、1の目が出る確率を折れ線グラフでプロットしなさい。（X軸：回数、Y軸：確率）</p>
-</section>
-</section>
 <section id="d">
-<h2>14.4 1Dランダムウォーク<a class="headerlink" href="#d" title="Link to this heading">#</a></h2>
+<h3>14.4 1Dランダムウォーク<a class="headerlink" href="#d" title="Link to this heading">#</a></h3>
 <p>それでは<strong>ランダムウォーク</strong>のシミュレーションを行ってみよう。ランダムウォークとはその名の通りランダムに歩き回る運動のことです。有名なランダムウォークとして花粉の中の微粒子が水面上でランダムウォークすることが知られています（ブラウン運動とも言います）。この微粒子の運動はペランが実験を行い観察し理論的な考察はアインシュタインが行いました。ランダムウォークは花粉微粒子の運動、株価の時系列、バクテリアの運動に至るまで様々な現象の基礎的なモデルとして取り扱われます。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -695,8 +680,8 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 </div>
 </div>
 </div>
-<section id="id7">
-<h3>1Dランダムウォークの統計的性質<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h4>1Dランダムウォークの統計的性質<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
 <p>数列だけでは良く分からないので、それでは1Dランダムウォークの動きの時系列をグラフで見てみましょう。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -732,8 +717,9 @@ x_{i+1}=ax_i+b \hspace{1cm}\pmod{m}, \hspace{1cm} 0\leq x_i &lt;m
 </div>
 </section>
 </section>
-<section id="id8">
-<h2>問題<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+</section>
+<section id="id9">
+<h2>問題14.3<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <p>1つのサンプルだけの動きを見ても良く分からないので、サンプル数を増やして時系列を重ね書きします。このとき各サンプルごとにseedを変更することに注意してください（同じ初期値から始めると同じ時系列が生成されることになります）。</p>
 <p>上のグラフを見ると1Dランダムウォークはステップ数が大きくなるにつれて原点からの距離<span class="math notranslate nohighlight">\(R(t)\)</span>が離れていく傾向がありそうです。本当に成り立っているのか調べてみます。</p>
 <div class="cell docutils container">
@@ -1005,9 +991,8 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 </div>
 </div>
 </div>
-</section>
-<section id="id9">
-<h2>14.5 2Dランダムウォーク<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h3>14.5 2Dランダムウォーク<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>続いて、平面上のランダムウォーク（2Dランダムウォーク）へ拡張して下さい。</p>
 <ul class="simple">
 <li><p>WINDOW SIZEは<span class="math notranslate nohighlight">\(500 \times 500\)</span></p></li>
@@ -1016,9 +1001,10 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id10">
-<h1>レポート問題<a class="headerlink" href="#id10" title="Link to this heading">#</a></h1>
+<section id="id11">
+<h2>レポート問題<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <p><strong>〆切：12/4までにGoogle Classroomでjupyter notebook形式「id_学籍番号_09.ipynb」で送ること</strong></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1057,8 +1043,17 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">第08回　数理工学実験２</p>
+        <p class="prev-next-title">第08回 数理工学実験２</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="MEE2_10web.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">第１0回 数理工学実験２</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -1067,7 +1062,8 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1076,28 +1072,29 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">14 モンテカルロ法</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.1 乱数の発生と使い方</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14 モンテカルロ法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">14.1 乱数の発生と使い方</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seed">乱数のseed（種）の設定</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">問題</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">14.2 中心極限定理</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.3 サイコロの作成</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">問題14.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.2 中心極限定理</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.3 サイコロの作成</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d">14.4 1Dランダムウォーク</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1Dランダムウォークの統計的性質</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">問題14.2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">14.4 1Dランダムウォーク</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1Dランダムウォークの統計的性質</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">問題</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">14.5 2Dランダムウォーク</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">レポート問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">問題14.3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">14.5 2Dランダムウォーク</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">レポート問題</a></li>
+</ul>
   </nav></div>
 
 </div></div>
@@ -1145,8 +1142,8 @@ By Masashi Shiraishi
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
