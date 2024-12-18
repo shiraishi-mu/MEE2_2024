@@ -25,13 +25,9 @@ chapters:
   title: 11/28 第09回　モンテカルロ法
 - file: lecture_ipynbs/MEE2_10web.ipynb
   title: 12/5 第10回　モンテカルロ法の応用
-#- file: lecture_ipynbs/MEE2_11web.ipynb
-#  title: 12/12 第11回　発表会1
-#- file: lecture_ipynbs/MEE2_12web.ipynb
-#  title: 12/19　第12回　データ解析（基礎）
-#- file: lecture_ipynbs/MEE2_12web.ipynb
-#  title: 12/19　第12回　データ解析（応用）
-#- file: lecture_ipynbs/MEE2_13web.ipynb
-#  title: 1/9 第13回　発表会2
-#- file: lecture_ipynbs/MEE2_14web.ipynb
+- file: lecture_ipynbs/MEE2_12a.ipynb
+  title: 12/19　第12回　データ解析（基礎）
+- file: lecture_ipynbs/MEE2_12b.ipynb
+  title: 12/19　第12回　データ解析（応用）
+# - file: lecture_ipynbs/MEE2_14web.ipynb
 #  title: 1/16　第14回　シミュレーションとデータ解析，ネットワーク

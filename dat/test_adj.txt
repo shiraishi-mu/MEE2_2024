@@ -1,0 +1,13 @@
+#/Users/mshira/Dropbox/2024数理工学実験２/2024Shiraishi/.venv/lib/python3.12/site-packages/ipykernel_launcher.py -f /Users/mshira/Library/Jupyter/runtime/kernel-7f49d129-f6e0-42ed-a943-0fb13f3f4acd.json
+# GMT Tue Dec 10 07:04:46 2024
+# 
+0 1 3 4 6 8
+1 4 5 6 9
+2 4 7 9
+3 4 7 9
+4 5 6 7
+5 6 8 9
+6 7
+7
+8
+9
