@@ -29,5 +29,5 @@ chapters:
   title: 12/19　第12回　データ解析（基礎）
 - file: lecture_ipynbs/MEE2_12b.ipynb
   title: 12/19　第12回　データ解析（応用）
-# - file: lecture_ipynbs/MEE2_14web.ipynb
-#  title: 1/16　第14回　シミュレーションとデータ解析，ネットワーク
+- file: lecture_ipynbs/MEE2_14web.ipynb
+  title: 1/16　第14回　シミュレーションとデータ解析，ネットワーク
